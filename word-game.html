@@ -256,8 +256,9 @@
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 100;
       box-shadow: 0 -4px 32px rgba(0,0,0,0.4);
+      pointer-events: none;
     }
-    .hint-popup.show { transform: translateY(0); }
+    .hint-popup.show { transform: translateY(0); pointer-events: auto; }
 
     .hint-popup-title {
       font-size: 0.7rem;
@@ -588,7 +589,108 @@ function escapeHtml(s) {
 }
 
 function startGame() {
-  currentWord = WORDS[Math.floor(Math.random() * WORDS.length)];
+  currentWord = WORDS[Math.floor(Math.random() * WORDS.length),
+  {
+    hint: '南半球最大城市',
+    answer: '悉尼',
+    hints: ['澳大利亚地标', '歌剧院和海港大桥', '答案是"悉尼"']
+  },
+  {
+    hint: '印度首都',
+    answer: '新德里',
+    hints: ['泰姬陵所在国家', '人口超过两千万', '答案是"新德里"']
+  },
+  {
+    hint: '足球王国',
+    answer: '巴西',
+    hints: ['捧过五次世界杯', '桑巴和足球', '答案是"巴西"']
+  },
+  {
+    hint: '北极圈城市',
+    answer: '摩尔曼斯克',
+    hints: ['俄罗斯不冻港', '极光和北极点', '答案是"摩尔曼斯克"']
+  },
+  {
+    hint: '千岛之国',
+    answer: '印尼',
+    hints: ['世界最大群岛', '巴厘岛在此', '答案是"印尼"']
+  },
+  {
+    hint: '设计之都',
+    answer: '米兰',
+    hints: ['意大利时尚之都', '足球俱乐部AC米兰', '答案是"米兰"']
+  },
+  {
+    hint: '大学城',
+    answer: '牛津',
+    hints: ['英语世界最古老大学', '英国地名', '答案是"牛津"']
+  },
+  {
+    hint: '沙漠首都',
+    answer: '利雅得',
+    hints: ['沙特阿拉伯首都', '石油和沙漠', '答案是"利雅得"']
+  },
+  {
+    hint: '瀑布之国',
+    answer: '委内瑞拉',
+    hints: ['安赫尔瀑布所在国', '南美洲北部', '答案是"委内瑞拉"']
+  },
+  {
+    hint: '樱花之城',
+    answer: '东京',
+    hints: ['日本首都', '樱花和浅草寺', '答案是"东京"']
+  },
+  {
+    hint: '双塔之城',
+    answer: '吉隆坡',
+    hints: ['马来西亚首都', '石油双峰塔', '答案是"吉隆坡"']
+  },
+  {
+    hint: '草原首都',
+    answer: '乌兰巴托',
+    hints: ['蒙古首都', '草原和游牧', '答案是"乌兰巴托"']
+  },
+  {
+    hint: '电影之城',
+    answer: '洛杉矶',
+    hints: ['好莱坞所在地', '加州阳光', '答案是"洛杉矶"']
+  },
+  {
+    hint: '钟表之国',
+    answer: '瑞士',
+    hints: ['中立国和阿尔卑斯山', '钟表和巧克力', '答案是"瑞士"']
+  },
+  {
+    hint: '枫叶之国',
+    answer: '加拿大',
+    hints: ['北美北部大国', '尼亚加拉瀑布', '答案是"加拿大"']
+  },
+  {
+    hint: '神话之岛',
+    answer: '克里特岛',
+    hints: ['希腊最大岛屿', '迷宫和米诺斯', '答案是"克里特岛"']
+  },
+  {
+    hint: '三塔之城',
+    answer: '旧金山',
+    hints: ['金门大桥', '硅谷孕育地', '答案是"旧金山"']
+  },
+  {
+    hint: '石油王国',
+    answer: '沙特',
+    hints: ['世界最大石油出口国', '沙漠和王子', '答案是"沙特"']
+  },
+  {
+    hint: '彩虹之国',
+    answer: '南非',
+    hints: ['曼德拉故乡', '好望角和野生动物', '答案是"南非"']
+  },
+  {
+    hint: '佛教之国',
+    answer: '泰国',
+    hints: ['大皇宫和佛寺', '人妖和热带水果', '答案是"泰国"']
+  }
+];
   attempts = 0;
   hintsUsed = 0;
   embeddingCache = {};
