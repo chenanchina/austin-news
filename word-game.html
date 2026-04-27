@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>猜词游戏</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -11,20 +11,31 @@
       font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
       background: #1a1a2e;
       color: #e0e0e0;
-      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
+      padding: 24px 16px;
     }
 
-    h1 { font-size: 1.8rem; margin-bottom: 8px; color: #fff; }
-    .subtitle { font-size: 0.85rem; color: #888; margin-bottom: 30px; }
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
     .game-card {
       background: #16213e;
       border-radius: 16px;
-      padding: 32px;
+      padding: 20px;
       width: 100%;
       max-width: 480px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.3);
@@ -32,96 +43,257 @@
 
     .hint-box {
       background: #0f3460;
-      border-radius: 10px;
-      padding: 16px 20px;
-      margin-bottom: 24px;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
       text-align: center;
+      min-height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .hint-label { font-size: 0.75rem; color: #aaa; margin-bottom: 6px; }
-    .hint-text { font-size: 1rem; color: #e0e0e0; letter-spacing: 2px; }
+    .hint-label {
+      font-size: 0.65rem;
+      color: #888;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-    .input-row { display: flex; gap: 10px; margin-bottom: 20px; }
+    .hint-text {
+      font-size: 1rem;
+      color: #e0e0e0;
+      letter-spacing: 1px;
+      line-height: 1.5;
+    }
+
+    .hint-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      justify-content: center;
+    }
+
+    .hint-tag {
+      font-size: 0.65rem;
+      padding: 3px 8px;
+      border-radius: 20px;
+      background: rgba(74, 158, 255, 0.15);
+      color: #4a9eff;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
 
     input[type="text"] {
       flex: 1;
-      padding: 14px 18px;
+      padding: 12px 14px;
       border: 2px solid #2a4a7a;
       border-radius: 10px;
       background: #0f3460;
       color: #fff;
-      font-size: 1.1rem;
+      font-size: 1rem;
       outline: none;
       transition: border-color 0.2s;
+      min-height: 46px;
     }
     input[type="text"]:focus { border-color: #4a9eff; }
+    input[type="text"]:disabled { opacity: 0.5; }
 
-    button {
-      padding: 14px 24px;
-      background: #4a9eff;
-      color: #fff;
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .btn-row button {
+      flex: 1;
+      padding: 10px 8px;
       border: none;
       border-radius: 10px;
-      font-size: 1rem;
+      font-size: 0.8rem;
       cursor: pointer;
       transition: background 0.2s, transform 0.1s;
-      white-space: nowrap;
+      min-height: 40px;
     }
-    button:hover { background: #3a8eef; }
-    button:active { transform: scale(0.97); }
-    button:disabled { background: #3a5a7a; cursor: not-allowed; }
 
-    .history { margin-top: 24px; }
-    .history-title { font-size: 0.75rem; color: #666; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    .btn-row button:active { transform: scale(0.97); }
+    .btn-row button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-guess {
+      background: #4a9eff;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .btn-guess:hover:not(:disabled) { background: #3a8eef; }
+
+    .btn-hint {
+      background: #2a4a7a;
+      color: #a0c4ff;
+    }
+    .btn-hint:hover:not(:disabled) { background: #3a5a8a; }
+
+    .btn-giveup {
+      background: #3a2a2a;
+      color: #ff9f9f;
+    }
+    .btn-giveup:hover:not(:disabled) { background: #4a3a3a; }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      font-size: 0.7rem;
+      color: #555;
+    }
+
+    .hint-count { color: #4a9eff; }
+    .attempt-count { color: #888; }
+
+    .history { margin-top: 8px; }
+    .history-title {
+      font-size: 0.65rem;
+      color: #555;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
     .history-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 14px;
+      padding: 8px 12px;
       border-radius: 8px;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       background: #0d1b2a;
     }
 
-    .history-word { font-size: 1rem; color: #ddd; }
+    .history-word { font-size: 0.9rem; color: #ddd; }
 
     .history-score {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: bold;
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: 20px;
     }
 
-    .score-high { color: #4ade80; background: rgba(74,222,128,0.15); }
-    .score-mid  { color: #facc15; background: rgba(250,204,21,0.15); }
-    .score-low  { color: #f87171; background: rgba(248,113,113,0.15); }
+    .score-high { color: #4ade80; background: rgba(74,222,128,0.12); }
+    .score-mid  { color: #facc15; background: rgba(250,204,21,0.12); }
+    .score-low  { color: #f87171; background: rgba(248,113,113,0.12); }
 
     .win-msg {
       text-align: center;
-      padding: 20px;
+      padding: 24px 16px;
       color: #4ade80;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: bold;
       animation: pop 0.4s ease;
+      line-height: 1.6;
+    }
+
+    .win-answer {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 8px;
+      font-weight: normal;
+    }
+
+    .giveup-msg {
+      text-align: center;
+      padding: 20px 16px;
+      color: #f87171;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .giveup-answer {
+      color: #aaa;
+      font-size: 0.85rem;
+      margin-top: 6px;
     }
 
     @keyframes pop {
-      0% { transform: scale(0.8); opacity: 0; }
+      0% { transform: scale(0.85); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
 
-    .error-msg { color: #f87171; font-size: 0.85rem; margin-top: 8px; text-align: center; }
-    .loading { color: #888; font-size: 0.85rem; text-align: center; margin-top: 8px; }
-    .attempts { font-size: 0.75rem; color: #555; text-align: right; margin-top: 4px; }
+    .error-msg { color: #f87171; font-size: 0.75rem; margin-top: 6px; text-align: center; min-height: 18px; }
+    .loading { color: #666; font-size: 0.75rem; margin-top: 6px; text-align: center; min-height: 18px; }
 
     .new-game-btn {
-      margin-top: 16px;
+      margin-top: 12px;
       width: 100%;
+      padding: 12px;
       background: #2a4a7a;
-      font-size: 0.9rem;
+      color: #a0c4ff;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s;
     }
     .new-game-btn:hover { background: #3a5a8a; }
+
+    /* 提示弹窗 */
+    .hint-popup {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #1e3a6e;
+      border-radius: 16px 16px 0 0;
+      padding: 20px 20px calc(20px + env(safe-area-inset-bottom));
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+      box-shadow: 0 -4px 32px rgba(0,0,0,0.4);
+    }
+    .hint-popup.show { transform: translateY(0); }
+
+    .hint-popup-title {
+      font-size: 0.7rem;
+      color: #4a9eff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .hint-popup-text {
+      font-size: 1.05rem;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .hint-popup-close {
+      background: #4a9eff;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 32px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 99;
+    }
+    .overlay.show { opacity: 1; pointer-events: auto; }
   </style>
 </head>
 <body>
@@ -133,25 +305,43 @@
     <div class="hint-box">
       <div class="hint-label">提示词</div>
       <div class="hint-text" id="hint">——</div>
+      <div class="hint-tags" id="hintTags"></div>
+    </div>
+
+    <div class="meta-row">
+      <span class="hint-count" id="hintCount">💡 提示 0/3</span>
+      <span class="attempt-count" id="attemptCount"></span>
     </div>
 
     <div class="input-row">
       <input type="text" id="guessInput" placeholder="输入你猜的词…" maxlength="20" autocomplete="off" />
-      <button id="guessBtn" onclick="doGuess()">猜测</button>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-hint" id="hintBtn" onclick="showHint()">💡 提示</button>
+      <button class="btn-guess" id="guessBtn" onclick="doGuess()">猜测</button>
+      <button class="btn-giveup" id="giveupBtn" onclick="giveUp()">放弃</button>
     </div>
 
     <div id="error" class="error-msg"></div>
-    <div id="loading" class="loading" style="display:none">🤖 正在计算语义相似度…</div>
-    <div class="attempts" id="attempts"></div>
+    <div id="loading" class="loading" style="display:none">🤖 正在计算…</div>
 
     <div class="history" id="history">
       <div class="history-title">猜测记录</div>
       <div id="historyList"></div>
     </div>
 
-    <div id="winArea"></div>
+    <div id="resultArea"></div>
 
     <button class="new-game-btn" id="newGameBtn" style="display:none" onclick="startGame()">🎲 换一个新词</button>
+  </div>
+
+  <!-- 提示弹窗 -->
+  <div class="overlay" id="overlay" onclick="closeHint()"></div>
+  <div class="hint-popup" id="hintPopup">
+    <div class="hint-popup-title">💡 第 <span id="hintNum">1</span> 条提示</div>
+    <div class="hint-popup-text" id="hintPopupText"></div>
+    <button class="hint-popup-close" onclick="closeHint()">知道了</button>
   </div>
 
 <script>
@@ -160,21 +350,89 @@ const API_HOST = 'https://api.siliconflow.cn';
 const MODEL = 'BAAI/bge-m3';
 
 const WORDS = [
-  { hint: '中国的科技创新中心', answer: '北京' },
-  { hint: '长江沿岸的工业城市', answer: '武汉' },
-  { hint: '硅谷的心脏', answer: '斯坦福' },
-  { hint: '全球市值最高的科技公司', answer: '苹果' },
-  { hint: '打开窗户会用到', answer: '玻璃' },
-  { hint: '可以用来书写的工具', answer: '钢笔' },
-  { hint: '天上飘的白色块状物', answer: '白云' },
-  { hint: '咖啡的原料', answer: '咖啡豆' },
-  { hint: '一年有四个季节', answer: '春天' },
-  { hint: '互联网的基础协议', answer: 'HTTP' },
+  {
+    hint: '中国的科技创新中心',
+    answer: '北京',
+    hints: ['它是中国的首都', '有中关村和清华北大', '答案是"北京"']
+  },
+  {
+    hint: '长江沿岸的工业城市',
+    answer: '武汉',
+    hints: ['省会城市，九省通衢', '有黄鹤楼和热干面', '答案是"武汉"']
+  },
+  {
+    hint: '硅谷的心脏',
+    answer: '斯坦福',
+    hints: ['世界顶尖大学', '位于加州，靠近硅谷', '答案是"斯坦福"']
+  },
+  {
+    hint: '全球市值最高的科技公司',
+    answer: '苹果',
+    hints: ['生产 iPhone 和 Mac', '总部在加州库比蒂诺', '答案是"苹果"']
+  },
+  {
+    hint: '打开窗户会用到',
+    answer: '玻璃',
+    hints: ['一种透明材料', '日常生活中随处可见', '答案是"玻璃"']
+  },
+  {
+    hint: '可以用来书写的工具',
+    answer: '钢笔',
+    hints: ['墨水来书写', '有金属笔尖', '答案是"钢笔"']
+  },
+  {
+    hint: '天上飘的白色块状物',
+    answer: '白云',
+    hints: ['由水汽凝结而成', '可以变成乌云然后下雨', '答案是"白云"']
+  },
+  {
+    hint: '咖啡的原料',
+    answer: '咖啡豆',
+    hints: ['经过烘焙和研磨', '产自热带地区', '答案是"咖啡豆"']
+  },
+  {
+    hint: '一年有四个季节',
+    answer: '春天',
+    hints: ['播种的季节', '百花盛开', '答案是"春天"']
+  },
+  {
+    hint: '互联网的基础协议',
+    answer: 'HTTP',
+    hints: ['浏览器地址栏常见', '用于网页数据传输', '答案是"HTTP"']
+  },
+  {
+    hint: '水果之王',
+    answer: '榴莲',
+    hints: ['有特殊气味，有人爱有人恨', '产自热带', '答案是"榴莲"']
+  },
+  {
+    hint: '可以飞上天空',
+    answer: '飞机',
+    hints: ['有翅膀但不是鸟', '在天上飞，金属做的', '答案是"飞机"']
+  },
+  {
+    hint: '夏天的解暑神器',
+    answer: '西瓜',
+    hints: ['绿皮红瓤', '夏天特有，便宜又甜', '答案是"西瓜"']
+  },
+  {
+    hint: '中国最高的山',
+    answer: '珠穆朗玛峰',
+    hints: ['世界最高峰', '在青藏高原上', '答案是"珠穆朗玛峰"']
+  },
+  {
+    hint: '可以用来支付的APP',
+    answer: '微信',
+    hints: ['国内最流行的社交和支付应用', '可以发红包', '答案是"微信"']
+  },
 ];
 
 let currentWord = null;
 let attempts = 0;
+let hintsUsed = 0;
+let totalHints = 0;
 let embeddingCache = {};
+let gameOver = false;
 
 async function getEmbedding(text) {
   if (embeddingCache[text]) return embeddingCache[text];
@@ -202,20 +460,26 @@ function cosineSim(a, b) {
   return dot / (Math.sqrt(na) * Math.sqrt(nb));
 }
 
-function similarityClass(score) {
-  if (score >= 0.75) return { cls: 'score-high', label: '🔥 高相关' };
-  if (score >= 0.45) return { cls: 'score-mid',  label: '⚡ 中相关' };
-  return                      { cls: 'score-low',  label: '💧 低相关' };
-}
-
 function scoreToPct(score) {
   return Math.round(((score + 1) / 2) * 100);
+}
+
+function scoreClass(score) {
+  if (score >= 0.75) return 'score-high';
+  if (score >= 0.45) return 'score-mid';
+  return 'score-low';
+}
+
+function scoreLabel(score) {
+  if (score >= 0.75) return '🔥 高相关';
+  if (score >= 0.45) return '⚡ 中相关';
+  return '💧 低相关';
 }
 
 async function doGuess() {
   const input = document.getElementById('guessInput');
   const guess = input.value.trim();
-  if (!guess || !currentWord) return;
+  if (!guess || !currentWord || gameOver) return;
   if (guess === currentWord.answer) { showWin(); return; }
 
   const btn = document.getElementById('guessBtn');
@@ -232,10 +496,11 @@ async function doGuess() {
     ]);
     const score = cosineSim(guessEmb, answerEmb);
     const pct = scoreToPct(score);
-    const { cls, label } = similarityClass(score);
+    const cls = scoreClass(score);
+    const label = scoreLabel(score);
 
     attempts++;
-    document.getElementById('attempts').textContent = `已猜 ${attempts} 次`;
+    updateMeta();
 
     const item = document.createElement('div');
     item.className = 'history-item';
@@ -245,6 +510,7 @@ async function doGuess() {
     `;
     document.getElementById('historyList').prepend(item);
     input.value = '';
+    input.focus();
   } catch (e) {
     errEl.textContent = '出错：' + e.message;
   } finally {
@@ -254,11 +520,67 @@ async function doGuess() {
 }
 
 function showWin() {
-  document.getElementById('winArea').innerHTML =
-    `<div class="win-msg">🎉 猜对了！答案就是「${escapeHtml(currentWord.answer)}」用了 ${attempts} 次</div>`;
-  document.getElementById('newGameBtn').style.display = 'block';
-  document.getElementById('guessBtn').disabled = true;
+  gameOver = true;
+  const pct = 100;
+  attempts++;
+  updateMeta();
+
+  const item = document.createElement('div');
+  item.className = 'history-item';
+  item.innerHTML = `
+    <span class="history-word">${escapeHtml(currentWord.answer)}</span>
+    <span class="history-score score-high">✓ 猜对了！</span>
+  `;
+  document.getElementById('historyList').prepend(item);
+
+  document.getElementById('resultArea').innerHTML =
+    `<div class="win-msg">
+      🎉 恭喜猜对了！
+      <div class="win-answer">用了 ${attempts} 次${hintsUsed > 0 ? '，参考了 ' + hintsUsed + ' 条提示' : ''}</div>
+    </div>`;
+
   document.getElementById('guessInput').disabled = true;
+  document.getElementById('guessBtn').disabled = true;
+  document.getElementById('hintBtn').disabled = true;
+  document.getElementById('giveupBtn').disabled = true;
+  document.getElementById('newGameBtn').style.display = 'block';
+}
+
+function giveUp() {
+  if (gameOver) return;
+  gameOver = true;
+  document.getElementById('resultArea').innerHTML =
+    `<div class="giveup-msg">
+      😅 放弃啦，答案是
+      <div class="giveup-answer">「${escapeHtml(currentWord.answer)}」</div>
+    </div>`;
+  document.getElementById('guessInput').disabled = true;
+  document.getElementById('guessBtn').disabled = true;
+  document.getElementById('hintBtn').disabled = true;
+  document.getElementById('giveupBtn').disabled = true;
+  document.getElementById('newGameBtn').style.display = 'block';
+}
+
+function showHint() {
+  if (hintsUsed >= currentWord.hints.length) return;
+  hintsUsed++;
+  updateMeta();
+  document.getElementById('hintNum').textContent = hintsUsed;
+  document.getElementById('hintPopupText').textContent = currentWord.hints[hintsUsed - 1];
+  document.getElementById('hintPopup').classList.add('show');
+  document.getElementById('overlay').classList.add('show');
+}
+
+function closeHint() {
+  document.getElementById('hintPopup').classList.remove('show');
+  document.getElementById('overlay').classList.remove('show');
+}
+
+function updateMeta() {
+  document.getElementById('hintCount').textContent =
+    `💡 提示 ${hintsUsed}/${currentWord.hints.length}`;
+  document.getElementById('attemptCount').textContent =
+    attempts > 0 ? `已猜 ${attempts} 次` : '';
 }
 
 function escapeHtml(s) {
@@ -268,14 +590,23 @@ function escapeHtml(s) {
 function startGame() {
   currentWord = WORDS[Math.floor(Math.random() * WORDS.length)];
   attempts = 0;
+  hintsUsed = 0;
   embeddingCache = {};
+  gameOver = false;
+
   document.getElementById('hint').textContent = currentWord.hint;
+  document.getElementById('hintTags').innerHTML = '';
   document.getElementById('historyList').innerHTML = '';
-  document.getElementById('attempts').textContent = '';
-  document.getElementById('winArea').innerHTML = '';
+  document.getElementById('resultArea').innerHTML = '';
   document.getElementById('guessInput').disabled = false;
+  document.getElementById('guessInput').value = '';
   document.getElementById('guessBtn').disabled = false;
+  document.getElementById('hintBtn').disabled = false;
+  document.getElementById('giveupBtn').disabled = false;
   document.getElementById('newGameBtn').style.display = 'none';
+  document.getElementById('error').textContent = '';
+
+  updateMeta();
   document.getElementById('guessInput').focus();
 }
 
