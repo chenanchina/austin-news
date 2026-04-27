@@ -594,7 +594,7 @@ function startGame() {
   embeddingCache = {};
   gameOver = false;
 
-  document.getElementById('hint').textContent = currentWord.hint;
+  document.getElementById('hint').textContent = currentWord.answer.length + '个字';
   document.getElementById('hintTags').innerHTML = '';
   document.getElementById('historyList').innerHTML = '';
   document.getElementById('resultArea').innerHTML = '';
