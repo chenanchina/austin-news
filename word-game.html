@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猜词游戏</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    .game-card {
+      background: #16213e;
+      border-radius: 16px;
+      padding: 32px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .hint-box {
+      background: #0f3460;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .hint-label {
+      font-size: 0.75rem;
+      color: #aaa;
+      margin-bottom: 6px;
+    }
+
+    .hint-text {
+      font-size: 1rem;
+      color: #e0e0e0;
+      letter-spacing: 2px;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 14px 18px;
+      border: 2px solid #2a4a7a;
+      border-radius: 10px;
+      background: #0f3460;
+      color: #fff;
+      font-size: 1.1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus {
+      border-color: #4a9eff;
+    }
+
+    button {
+      padding: 14px 24px;
+      background: #4a9eff;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    button:hover { background: #3a8eef; }
+    button:active { transform: scale(0.97); }
+    button:disabled { background: #3a5a7a; cursor: not-allowed; }
+
+    .history {
+      margin-top: 24px;
+    }
+
+    .history-title {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .history-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 6px;
+      background: #0d1b2a;
+      transition: background 0.3s;
+    }
+
+    .history-word {
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    .history-score {
+      font-size: 0.9rem;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .score-high { color: #4ade80; }
+    .score-mid  { color: #facc15; }
+    .score-low  { color: #f87171; }
+
+    .bg-high  { background: rgba(74,222,128,0.15); }
+    .bg-mid   { background: rgba(250,204,21,0.15); }
+    .bg-low   { background: rgba(248,113,113,0.15); }
+
+    .win-msg {
+      text-align: center;
+      padding: 20px;
+      color: #4ade80;
+      font-size: 1.2rem;
+      font-weight: bold;
+      animation: pop 0.4s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .error-msg {
+      color: #f87171;
+      font-size: 0.85rem;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .loading {
+      color: #888;
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .attempts {
+      font-size: 0.75rem;
+      color: #555;
+      text-align: right;
+      margin-top: 4px;
+    }
+
+    .new-game-btn {
+      margin-top: 16px;
+      width: 100%;
+      background: #2a4a7a;
+      font-size: 0.9rem;
+    }
+
+    .new-game-btn:hover { background: #3a5a8a; }
+  </style>
+</head>
+<body>
+
+  <h1>🔤 猜词游戏</h1>
+  <p class="subtitle">AI 语义相似度 · 猜到原词为止</p>
+
+  <div class="game-card">
+    <div class="hint-box">
+      <div class="hint-label">提示词</div>
+      <div class="hint-text" id="hint">——</div>
+    </div>
+
+    <div class="input-row">
+      <input type="text" id="guessInput" placeholder="输入你猜的词…" maxlength="20" autocomplete="off" />
+      <button id="guessBtn" onclick="doGuess()">猜测</button>
+    </div>
+
+    <div id="error" class="error-msg"></div>
+    <div id="loading" class="loading" style="display:none">🤖 正在计算语义相似度…</div>
+    <div class="attempts" id="attempts"></div>
+
+    <div class="history" id="history">
+      <div class="history-title">猜测记录</div>
+      <div id="historyList"></div>
+    </div>
+
+    <div id="winArea"></div>
+
+    <button class="new-game-btn" id="newGameBtn" style="display:none" onclick="startGame()">🎲 换一个新词</button>
+  </div>
+
+<script>
+// ============================================================
+// ⚠️  在下面填入你的 MiniMax API Key
+// ============================================================
+const API_KEY = 'YOUR_MINIMAX_API_KEY_HERE';
+// ============================================================
+
+const API_HOST = 'https://api.minimaxi.com';
+const MODEL = 'embedding-01';
+
+// 词库：提示词 → 答案
+const WORDS = [
+  { hint: '中国的科技创新中心', answer: '北京' },
+  { hint: '长江沿岸的工业城市', answer: '武汉' },
+  { hint: '硅谷的心脏', answer: '斯坦福' },
+  { hint: '全球市值最高的科技公司', answer: '苹果' },
+  { hint: '打开窗户会用到', answer: '玻璃' },
+  { hint: '可以用来书写的工具', answer: '钢笔' },
+  { hint: '天上飘的白色块状物', answer: '白云' },
+  { hint: '咖啡的原料', answer: '咖啡豆' },
+  { hint: '一年有四个季节', answer: '春天' },
+  { hint: '互联网的基础协议', answer: 'HTTP' },
+];
+
+let currentWord = null;
+let attempts = 0;
+let embeddingCache = {};
+
+async function getEmbedding(text) {
+  if (embeddingCache[text]) return embeddingCache[text];
+  const resp = await fetch(`${API_HOST}/v1/embeddings`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${API_KEY}`
+    },
+    body: JSON.stringify({ model: MODEL, input: text })
+  });
+  const data = await resp.json();
+  if (!resp.ok) throw new Error(data.base_resp?.status_msg || 'API错误');
+  embeddingCache[text] = data.data[0].embedding;
+  return data.data[0].embedding;
+}
+
+function cosineSim(a, b) {
+  let dot = 0, na = 0, nb = 0;
+  for (let i = 0; i < a.length; i++) {
+    dot += a[i] * b[i];
+    na += a[i] * a[i];
+    nb += b[i] * b[i];
+  }
+  return dot / (Math.sqrt(na) * Math.sqrt(nb));
+}
+
+function similarityClass(score) {
+  if (score >= 0.75) return { cls: 'score-high bg-high', label: '🔥 高相关' };
+  if (score >= 0.45) return { cls: 'score-mid  bg-mid',  label: '⚡ 中相关' };
+  return                      { cls: 'score-low  bg-low',  label: '💧 低相关' };
+}
+
+function scoreToPct(score) {
+  // cosine ∈ [-1,1] → 映射到 0-100%
+  // 语义相似度不会是负的，用 (score+1)/2 映射
+  return Math.round(((score + 1) / 2) * 100);
+}
+
+async function doGuess() {
+  const input = document.getElementById('guessInput');
+  const guess = input.value.trim();
+  if (!guess || !currentWord) return;
+  if (guess === currentWord.answer) {
+    showWin();
+    return;
+  }
+
+  const btn = document.getElementById('guessBtn');
+  const errEl = document.getElementById('error');
+  const loadEl = document.getElementById('loading');
+  errEl.textContent = '';
+  btn.disabled = true;
+  loadEl.style.display = 'block';
+
+  try {
+    const [guessEmb, answerEmb] = await Promise.all([
+      getEmbedding(guess),
+      getEmbedding(currentWord.answer),
+    ]);
+    const score = cosineSim(guessEmb, answerEmb);
+    const pct = scoreToPct(score);
+    const { cls, label } = similarityClass(score);
+
+    attempts++;
+    document.getElementById('attempts').textContent = `已猜 ${attempts} 次`;
+
+    const item = document.createElement('div');
+    item.className = 'history-item';
+    item.innerHTML = `
+      <span class="history-word">${escapeHtml(guess)}</span>
+      <span class="history-score ${cls}">${pct}% ${label}</span>
+    `;
+    document.getElementById('historyList').prepend(item);
+    input.value = '';
+  } catch (e) {
+    errEl.textContent = '出错：' + e.message;
+  } finally {
+    btn.disabled = false;
+    loadEl.style.display = 'none';
+  }
+}
+
+function showWin() {
+  document.getElementById('winArea').innerHTML =
+    `<div class="win-msg">🎉 猜对了！答案就是「${escapeHtml(currentWord.answer)}」用了 ${attempts} 次</div>`;
+  document.getElementById('newGameBtn').style.display = 'block';
+  document.getElementById('guessBtn').disabled = true;
+  document.getElementById('guessInput').disabled = true;
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function startGame() {
+  currentWord = WORDS[Math.floor(Math.random() * WORDS.length)];
+  attempts = 0;
+  embeddingCache = {};
+  document.getElementById('hint').textContent = currentWord.hint;
+  document.getElementById('historyList').innerHTML = '';
+  document.getElementById('attempts').textContent = '';
+  document.getElementById('winArea').innerHTML = '';
+  document.getElementById('guessInput').disabled = false;
+  document.getElementById('guessBtn').disabled = false;
+  document.getElementById('newGameBtn').style.display = 'none';
+  document.getElementById('guessInput').focus();
+}
+
+// 回车猜测
+document.getElementById('guessInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doGuess();
+});
+
+startGame();
+</script>
+</body>
+</html>
