@@ -18,17 +18,8 @@
       padding: 40px 20px;
     }
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-
-    .subtitle {
-      font-size: 0.85rem;
-      color: #888;
-      margin-bottom: 30px;
-    }
+    h1 { font-size: 1.8rem; margin-bottom: 8px; color: #fff; }
+    .subtitle { font-size: 0.85rem; color: #888; margin-bottom: 30px; }
 
     .game-card {
       background: #16213e;
@@ -47,23 +38,10 @@
       text-align: center;
     }
 
-    .hint-label {
-      font-size: 0.75rem;
-      color: #aaa;
-      margin-bottom: 6px;
-    }
+    .hint-label { font-size: 0.75rem; color: #aaa; margin-bottom: 6px; }
+    .hint-text { font-size: 1rem; color: #e0e0e0; letter-spacing: 2px; }
 
-    .hint-text {
-      font-size: 1rem;
-      color: #e0e0e0;
-      letter-spacing: 2px;
-    }
-
-    .input-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
+    .input-row { display: flex; gap: 10px; margin-bottom: 20px; }
 
     input[type="text"] {
       flex: 1;
@@ -76,10 +54,7 @@
       outline: none;
       transition: border-color 0.2s;
     }
-
-    input[type="text"]:focus {
-      border-color: #4a9eff;
-    }
+    input[type="text"]:focus { border-color: #4a9eff; }
 
     button {
       padding: 14px 24px;
@@ -92,22 +67,12 @@
       transition: background 0.2s, transform 0.1s;
       white-space: nowrap;
     }
-
     button:hover { background: #3a8eef; }
     button:active { transform: scale(0.97); }
     button:disabled { background: #3a5a7a; cursor: not-allowed; }
 
-    .history {
-      margin-top: 24px;
-    }
-
-    .history-title {
-      font-size: 0.75rem;
-      color: #666;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    .history { margin-top: 24px; }
+    .history-title { font-size: 0.75rem; color: #666; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
 
     .history-item {
       display: flex;
@@ -117,13 +82,9 @@
       border-radius: 8px;
       margin-bottom: 6px;
       background: #0d1b2a;
-      transition: background 0.3s;
     }
 
-    .history-word {
-      font-size: 1rem;
-      color: #ddd;
-    }
+    .history-word { font-size: 1rem; color: #ddd; }
 
     .history-score {
       font-size: 0.9rem;
@@ -132,13 +93,9 @@
       border-radius: 20px;
     }
 
-    .score-high { color: #4ade80; }
-    .score-mid  { color: #facc15; }
-    .score-low  { color: #f87171; }
-
-    .bg-high  { background: rgba(74,222,128,0.15); }
-    .bg-mid   { background: rgba(250,204,21,0.15); }
-    .bg-low   { background: rgba(248,113,113,0.15); }
+    .score-high { color: #4ade80; background: rgba(74,222,128,0.15); }
+    .score-mid  { color: #facc15; background: rgba(250,204,21,0.15); }
+    .score-low  { color: #f87171; background: rgba(248,113,113,0.15); }
 
     .win-msg {
       text-align: center;
@@ -154,26 +111,9 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
-    .error-msg {
-      color: #f87171;
-      font-size: 0.85rem;
-      margin-top: 8px;
-      text-align: center;
-    }
-
-    .loading {
-      color: #888;
-      font-size: 0.85rem;
-      text-align: center;
-      margin-top: 8px;
-    }
-
-    .attempts {
-      font-size: 0.75rem;
-      color: #555;
-      text-align: right;
-      margin-top: 4px;
-    }
+    .error-msg { color: #f87171; font-size: 0.85rem; margin-top: 8px; text-align: center; }
+    .loading { color: #888; font-size: 0.85rem; text-align: center; margin-top: 8px; }
+    .attempts { font-size: 0.75rem; color: #555; text-align: right; margin-top: 4px; }
 
     .new-game-btn {
       margin-top: 16px;
@@ -181,7 +121,6 @@
       background: #2a4a7a;
       font-size: 0.9rem;
     }
-
     .new-game-btn:hover { background: #3a5a8a; }
   </style>
 </head>
@@ -216,16 +155,10 @@
   </div>
 
 <script>
-// ============================================================
-// ⚠️  在下面填入你的 MiniMax API Key
-// ============================================================
 const API_KEY = 'sk-kuftqqpjlsdxxiwtexexarswsijazrrtsorftzmjtisctsdg';
-// ============================================================
-
 const API_HOST = 'https://api.siliconflow.cn';
 const MODEL = 'BAAI/bge-m3';
 
-// 词库：提示词 → 答案
 const WORDS = [
   { hint: '中国的科技创新中心', answer: '北京' },
   { hint: '长江沿岸的工业城市', answer: '武汉' },
@@ -254,7 +187,7 @@ async function getEmbedding(text) {
     body: JSON.stringify({ model: MODEL, input: text })
   });
   const data = await resp.json();
-  if (!resp.ok) throw new Error(data.base_resp?.status_msg || 'API错误');
+  if (!resp.ok) throw new Error(data.message || JSON.stringify(data));
   embeddingCache[text] = data.data[0].embedding;
   return data.data[0].embedding;
 }
@@ -270,14 +203,12 @@ function cosineSim(a, b) {
 }
 
 function similarityClass(score) {
-  if (score >= 0.75) return { cls: 'score-high bg-high', label: '🔥 高相关' };
-  if (score >= 0.45) return { cls: 'score-mid  bg-mid',  label: '⚡ 中相关' };
-  return                      { cls: 'score-low  bg-low',  label: '💧 低相关' };
+  if (score >= 0.75) return { cls: 'score-high', label: '🔥 高相关' };
+  if (score >= 0.45) return { cls: 'score-mid',  label: '⚡ 中相关' };
+  return                      { cls: 'score-low',  label: '💧 低相关' };
 }
 
 function scoreToPct(score) {
-  // cosine ∈ [-1,1] → 映射到 0-100%
-  // 语义相似度不会是负的，用 (score+1)/2 映射
   return Math.round(((score + 1) / 2) * 100);
 }
 
@@ -285,10 +216,7 @@ async function doGuess() {
   const input = document.getElementById('guessInput');
   const guess = input.value.trim();
   if (!guess || !currentWord) return;
-  if (guess === currentWord.answer) {
-    showWin();
-    return;
-  }
+  if (guess === currentWord.answer) { showWin(); return; }
 
   const btn = document.getElementById('guessBtn');
   const errEl = document.getElementById('error');
@@ -351,7 +279,6 @@ function startGame() {
   document.getElementById('guessInput').focus();
 }
 
-// 回车猜测
 document.getElementById('guessInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') doGuess();
 });
