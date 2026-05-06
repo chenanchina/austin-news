@@ -1,379 +1,158 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>新闻摘要 · 2026年05月05日</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --bg: #0f172a; --card: #1e293b; --card-hover: #273449;
-    --border: #334155; --text: #e2e8f0; --text-dim: #94a3b8;
-    --text-muted: #64748b;
-    --blue: #38bdf8; --green: #4ade80; --orange: #fb923c;
-    --purple: #a78bfa; --red: #f87171;
-  }
-  body { background: var(--bg); color: var(--text); font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; line-height: 1.7; min-height: 100vh; padding: 2rem 1rem; }
-  .container { max-width: 860px; margin: 0 auto; }
-  .header { text-align: center; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
-  .header .date { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
-  .header h1 { font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #a78bfa, #38bdf8, #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.4rem; }
-  .header .desc { color: var(--text-dim); font-size: 0.88rem; }
-  .section { margin-bottom: 2rem; }
-  .section-head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
-  .sec-icon { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-  .si-ai { background: rgba(167,139,250,0.15); } .si-world { background: rgba(56,189,248,0.15); }
-  .si-china { background: rgba(74,222,128,0.15); } .si-wuhan { background: rgba(251,146,60,0.15); }
-  .sec-title { font-size: 1.08rem; font-weight: 600; }
-  .topic { background: var(--card); border: 1px solid var(--border); border-radius: 13px; padding: 1.1rem 1.4rem; margin-bottom: 0.85rem; }
-  .topic:hover { border-color: var(--text-muted); }
-  .topic-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
-  .topic-title { font-size: 0.97rem; font-weight: 600; }
-  .badge { font-size: 0.67rem; padding: 0.12rem 0.45rem; border-radius: 20px; font-weight: 600; flex-shrink: 0; }
-  .b-new { background: rgba(248,113,113,0.15); color: #f87171; }
-  .b-hot { background: rgba(251,146,60,0.15); color: #fb923c; }
-  ul { list-style: none; }
-  li { color: var(--text-dim); font-size: 0.9rem; padding: 0.25rem 0; padding-left: 1.1rem; position: relative; }
-  li::before { content: '›'; position: absolute; left: 0; color: var(--text-muted); }
-  .news-item { background: var(--card); border: 1px solid var(--border); border-radius: 11px; padding: 0.85rem 1.2rem; margin-bottom: 0.55rem; }
-  .news-item:hover { border-color: var(--text-muted); background: var(--card-hover); }
-  .nd { width: 7px; height: 7px; border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0; }
-  .n-blue { background: var(--blue); } .n-green { background: var(--green); }
-  .n-orange { background: var(--orange); } .n-purple { background: var(--purple); }
-  .nt { font-size: 0.9rem; color: var(--text); font-weight: 500; line-height: 1.5; }
-  .nm { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
-  a.nt { text-decoration: none; display: block; }
-  a.nt:hover { color: var(--blue); }
-  .divider { height: 1px; background: var(--border); margin: 1.25rem 0; opacity: 0.5; }
-  .footer { text-align: center; color: var(--text-muted); font-size: 0.78rem; margin-top: 2.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
-  @media (max-width: 580px) { body { padding: 1rem 0.7rem; } .header h1 { font-size: 1.5rem; } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026年05月07日 新闻摘要</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #222; line-height: 1.6; font-size: 16px; }
+    @media (prefers-color-scheme: dark) { body { background: #1a1a1a; color: #e0e0e0; } a { color: #6eb5ff; } .card { background: #2a2a2a; border-color: #3a3a3a; } .tag-ai { background: #5b4fff; } .tag-intl { background: #e63946; } .tag-cn { background: #2d8f4e; } .tag-wuhan { background: #d4841a; } header { background: #1f1f1f; border-color: #333; } .footer { border-color: #333; color: #888; } }
+
+    .container { max-width: 640px; margin: 0 auto; padding: 16px 12px; }
+    header { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid #e0e0e0; }
+    @media (prefers-color-scheme: dark) { header { background: #2a2a2a; border-color: #3a3a3a; } }
+    header h1 { font-size: 20px; font-weight: 700; color: #111; margin-bottom: 4px; }
+    @media (prefers-color-scheme: dark) { header h1 { color: #fff; } }
+    .header-date { font-size: 13px; color: #888; margin-bottom: 12px; }
+    .header-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #fff; }
+    .tag-ai { background: #4f46e5; }
+    .tag-intl { background: #dc2626; }
+    .tag-cn { background: #16a34a; }
+    .tag-wuhan { background: #d97706; }
+
+    .card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; border: 1px solid #e0e0e0; }
+    @media (prefers-color-scheme: dark) { .card { background: #2a2a2a; border-color: #3a3a3a; } }
+    .card-section { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #888; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+    @media (prefers-color-scheme: dark) { .card-section { border-color: #333; } }
+    .news-item { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #f0f0f0; }
+    @media (prefers-color-scheme: dark) { .news-item { border-color: #333; } }
+    .news-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .news-title { font-size: 15px; font-weight: 600; color: #111; margin-bottom: 4px; line-height: 1.4; }
+    @media (prefers-color-scheme: dark) { .news-title { color: #e8e8e8; } }
+    .news-title a { text-decoration: none; color: inherit; }
+    .news-title a:hover { text-decoration: underline; }
+    .news-desc { font-size: 13px; color: #666; line-height: 1.5; }
+    @media (prefers-color-scheme: dark) { .news-desc { color: #999; } }
+    .news-source { font-size: 11px; color: #aaa; margin-top: 4px; }
+    @media (prefers-color-scheme: dark) { .news-source { color: #777; } }
+
+    .footer { text-align: center; padding: 20px 0; font-size: 12px; color: #aaa; border-top: 1px solid #e0e0e0; margin-top: 8px; }
+  </style>
 </head>
 <body>
-<div class="container">
+  <div class="container">
+    <header>
+      <h1>📰 早安安哥 · 2026年05月07日</h1>
+      <div class="header-date">周四 · AI前沿 · 国际 · 国内 · 武汉</div>
+      <div class="header-tags">
+        <span class="tag tag-ai">🤖 AI前沿</span>
+        <span class="tag tag-intl">🌍 国际</span>
+        <span class="tag tag-cn">🏛️ 国内</span>
+        <span class="tag tag-wuhan">🏙️ 武汉</span>
+      </div>
+    </header>
 
-<div class="header">
-  <div class="date">2026年05月05日 · 周二</div>
-  <h1>📰 新闻摘要</h1>
-  <div class="desc">AI前沿 · 国际 · 国内 · 武汉　　<i style="font-size:0.75rem;color:var(--text-muted)">点击标题阅读原文</i></div>
+    <!-- AI前沿 -->
+    <div class="card">
+      <div class="card-section">🤖 AI前沿</div>
+      <div class="news-item">
+  <div class="news-title"><a href="https://techcrunch.com/2026/05/06/deepseek-could-hit-45b-valuation-from-its-first-investment-round/" target="_blank">DeepSeek首次融资：估值或达450亿美元，腾讯、阿里参与洽谈</a></div>
+  <div class="news-desc">中国AI实验室DeepSeek正进行首轮融资，估值已从200亿美元飙升至450亿美元。由国家集成电路产业投资基金领投，腾讯、阿里均参与洽谈。DeepSeek以低成本训练高性能模型著称，已优化适配华为芯片。</div>
+  <div class="news-source">来源：TechCrunch · 2026-05-06</div>
 </div>
-
-<!-- AI 前沿 -->
-<div class="section">
-  <div class="section-head">
-    <div class="sec-icon si-ai">🤖</div>
-    <div class="sec-title">AI 前沿</div>
-  </div>
-
-  <div class="topic">
-    <div class="topic-head">
-      <div class="topic-title">🚀 Anthropic 与 OpenAI 同时宣布成立企业AI服务合资公司</div>
-      <span class="badge b-new">NEW</span>
-      <span class="badge b-hot">重磅</span>
-    </div>
-    <ul>
-      <li>Anthropic 和 OpenAI 罕见同步官宣，各自在企业AI服务领域成立合资公司</li>
-      <li>企业AI赛道竞争白热化：Sierra 同期宣布融资9.5亿美元，估值飙升</li>
-      <li>OpenAI 密切合作伙伴 Cerebras 筹备大规模 IPO，芯片算力赛道持续火热</li>
-      <li>图片生成AI模型驱动App增长，效果超越聊天机器人升级</li>
-    </ul>
-  </div>
-
-  <div class="topic">
-    <div class="topic-head">
-      <div class="topic-title">🛡️ AI监管动态：具身智能国际标准立项，中国发AI知识库安全指南</div>
-      <span class="badge b-hot">高热</span>
-    </div>
-    <ul>
-      <li>具身智能领域首个国际标准成功立项，中国机构主导</li>
-      <li>两部门发文推动人工智能模型与数据资源同频共振</li>
-      <li>新华网联合多家机构发布《AI知识库安全建设与应用指南》</li>
-      <li>"This is fine" 画作者指控AI初创公司盗用作品用于模型训练</li>
-    </ul>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-purple"></div>
-      <a class="nt" href="https://techcrunch.com/2026/05/05/anthropic-openai-joint-ventures-enterprise-ai/" target="_blank">Anthropic 和 OpenAI 同时宣布成立企业AI服务合资公司</a>
-    </div>
-    <div class="nm">TechCrunch · 6小时前</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-purple"></div>
-      <a class="nt" href="https://techcrunch.com/2026/05/05/sierra-raises-950m-enterprise-ai/" target="_blank">Sierra 融资9.5亿美元，企业AI竞争格局加剧</a>
-    </div>
-    <div class="nm">TechCrunch · 5小时前</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-purple"></div>
-      <a class="nt" href="https://techcrunch.com/2026/05/05/cerebras-ipo-openai-partner/" target="_blank">OpenAI 合作伙伴 Cerebras 筹备大规模 IPO，算力赛道持续火热</a>
-    </div>
-    <div class="nm">TechCrunch · 刚刚</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-purple"></div>
-      <a class="nt" href="https://techcrunch.com/2026/05/05/image-ai-app-growth/" target="_blank">图片生成AI模型驱动App增长，超越聊天机器人升级</a>
-    </div>
-    <div class="nm">TechCrunch · 3小时前</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-purple"></div>
-      <a class="nt" href="https://www.news.cn/sci-tech/20260505.htm" target="_blank">两部门发文推动人工智能模型与数据资源同频共振</a>
-    </div>
-    <div class="nm">新华网科创 · 今日</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-purple"></div>
-      <a class="nt" href="https://www.news.cn/sci-tech/20260504.htm" target="_blank">新华网联合多家机构发布《AI知识库安全建设与应用指南》为智能时代筑牢知识安全底座</a>
-    </div>
-    <div class="nm">新华网科创 · 今日</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-purple"></div>
-      <a class="nt" href="https://techcrunch.com/2026/05/05/musk-openai-trial-settlement-texts/" target="_blank">OpenAI 披露马斯克在谈判破裂后向 Altman 发出"不祥短信"</a>
-    </div>
-    <div class="nm">TechCrunch · 今日</div>
-  </div>
-
+<div class="news-item">
+  <div class="news-title"><a href="https://www.pengpai.net/" target="_blank">美军部署超10万AI智能体，欲打造"算法铁幕"谋求算法霸权</a></div>
+  <div class="news-desc">美军被曝已在全球范围内部署超过10万个人工智能体，构建大规模自动化作战与情报分析网络。此举被视为美国谋求"算法霸权"、构建"算法铁幕"战略的重要组成部分。</div>
+  <div class="news-source">来源：澎湃新闻 · 2026-05-06</div>
 </div>
-
-<div class="divider"></div>
-
-<!-- 国际 -->
-<div class="section">
-  <div class="section-head">
-    <div class="sec-icon si-world">🌍</div>
-    <div class="sec-title">国际要闻</div>
-  </div>
-
-  <div class="topic">
-    <div class="topic-head">
-      <div class="topic-title">⚔️ 霍尔木兹海峡局势：伊朗否认船只通过，美军协助船只离开引发争议</div>
-      <span class="badge b-hot">高热</span>
-    </div>
-    <ul>
-      <li>伊朗媒体否认过去数小时有任何船只通过霍尔木兹海峡</li>
-      <li>美军协助受困船只离开霍尔木兹海峡，伊朗称将视为违反停火</li>
-      <li>伊朗武装部队警告美军：勿接近或进入霍尔木兹海峡</li>
-      <li>霍尔木兹封锁效应：因能源命脉受阻，美国意外成为全球最大石油出口国</li>
-      <li>亚行下调亚洲经济前景，中东战争冲击能源供应链</li>
-    </ul>
-  </div>
-
-  <div class="topic">
-    <div class="topic-head">
-      <div class="topic-title">🤝 盟友关系重塑：德国拒绝放弃与美合作，日澳签署经济安保协议</div>
-      <span class="badge b-hot">高热</span>
-    </div>
-    <ul>
-      <li>德国总理默茨：不会放弃与特朗普合作，美国仍是北约联盟核心</li>
-      <li>北约秘书长吕特：北约已听进特朗普意见，正落实双边基地使用协议</li>
-      <li>日本首相高市访澳，推进日澳经济安保合作框架</li>
-      <li>印尼与日本签署防务合作协议，亚洲安全格局生变</li>
-    </ul>
-  </div>
-
-  <div class="topic">
-    <div class="topic-head">
-      <div class="topic-title">🏛️ 东京审判开庭80周年：多国呼吁日本正视历史，中国借机批日</div>
-    </div>
-    <ul>
-      <li>外交部：东京审判开庭80周年，为侵略翻案必被再次押上历史审判台</li>
-      <li>亚洲多国人士呼吁日本正视东京审判历史正义</li>
-      <li>中国借东京审判批日本军国主义，对日舆论反制进行现实动员</li>
-    </ul>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-blue"></div>
-      <a class="nt" href="https://www.zaobao.com.sg/news/world/story20260505-4790900" target="_blank">美军助受困船只离开霍尔木兹海峡，伊朗称将视为违反停火</a>
-    </div>
-    <div class="nm">联合早报 · 6小时前</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-blue"></div>
-      <a class="nt" href="https://www.zaobao.com.sg/news/world/story20260505-4790800" target="_blank">因霍尔木兹海峡被封锁，美国意外成为全球最大石油出口国</a>
-    </div>
-    <div class="nm">联合早报 · 今日</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-blue"></div>
-      <a class="nt" href="https://www.zaobao.com.sg/news/world/story20260505-4790700" target="_blank">中东战争冲击能源命脉，亚行下调亚洲经济前景</a>
-    </div>
-    <div class="nm">联合早报 · 今日</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-blue"></div>
-      <a class="nt" href="https://www.zaobao.com.sg/news/world/story20260505-4790600" target="_blank">默茨：不会放弃与特朗普合作，美国仍是北约联盟核心</a>
-    </div>
-    <div class="nm">联合早报 · 今日</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-blue"></div>
-      <a class="nt" href="https://www.zaobao.com.sg/news/world/story20260505-4790550" target="_blank">高市访澳洲，推进日澳经济安保合作框架</a>
-    </div>
-    <div class="nm">联合早报 · 今日</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-blue"></div>
-      <a class="nt" href="https://www.news.cn/world/20260505.htm" target="_blank">中国驻朝大使馆公参访问朝中俄接壤地区六天</a>
-    </div>
-    <div class="nm">新华网国际 · 今日</div>
-  </div>
-
+<div class="news-item">
+  <div class="news-title"><a href="https://www.news.cn/sci-tech/index.html" target="_blank">新华网联合多机构发布《AI知识库安全建设与应用指南》</a></div>
+  <div class="news-desc">新华网联合多家机构发布《AI知识库安全建设与应用指南》，为智能时代筑牢知识安全底座。两部门同时发文推动人工智能模型与数据资源同频共振，加速AI基础设施建设。</div>
+  <div class="news-source">来源：新华网科创 · 2026-05-06</div>
 </div>
-
-<div class="divider"></div>
-
-<!-- 国内 -->
-<div class="section">
-  <div class="section-head">
-    <div class="sec-icon si-china">🇨🇳</div>
-    <div class="sec-title">国内要闻</div>
-  </div>
-
-  <div class="topic">
-    <div class="topic-head">
-      <div class="topic-title">✉️ 习近平回信勉励中国青年五四奖章获奖者代表</div>
-      <span class="badge b-new">NEW</span>
-    </div>
-    <ul>
-      <li>习近平总书记回信激励广大青年在新征程上挺膺担当、矢志奋斗</li>
-      <li>寄语青年：奋斗始终是青春年华的主旋律，寄希望于青年</li>
-      <li>全国共有共青团员7833.6万名，较2024年增加逾302万名</li>
-    </ul>
-  </div>
-
-  <div class="topic">
-    <div class="topic-head">
-      <div class="topic-title">🛡️ 中国发布首份阻断禁令反击美国制裁</div>
-      <span class="badge b-new">NEW</span>
-    </div>
-    <ul>
-      <li>中国首次发布阻断禁令，回击美国制裁，为元首会晤增加谈判筹码</li>
-      <li>分析：此举为中美高层对话营造谈判氛围</li>
-      <li>王毅同美国国务卿鲁比奥通话，强调台湾问题是中美关系最大风险点</li>
-    </ul>
-  </div>
-
-  <div class="topic">
-    <div class="topic-head">
-      <div class="topic-title">📊 经济与产业</div>
-    </div>
-    <ul>
-      <li>中国机器人初创企业灵心巧手新一轮融资寻求翻倍估值</li>
-      <li>湖南浏阳烟花厂爆炸事故已致3死25伤，习近平要求尽速查明原因</li>
-      <li>中国首艘核动力航母命名悬念引发讨论</li>
-      <li>辽宁丹东交通事故已致8死13伤</li>
-    </ul>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-green"></div>
-      <a class="nt" href="https://www.zaobao.com.sg/news/china/story20260505-4790450" target="_blank">中国发布首份阻断禁令反击美国制裁，分析：为元首会晤增谈判筹码</a>
-    </div>
-    <div class="nm">联合早报 · 今日</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-green"></div>
-      <a class="nt" href="https://www.thepaper.cn/newsDetail_forward_20260505" target="_blank">习近平要求尽速查明湖南浏阳烟花厂爆炸事故原因</a>
-    </div>
-    <div class="nm">澎湃新闻 · 今日</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-green"></div>
-      <a class="nt" href="https://www.zaobao.com.sg/news/china/story20260505-4790400" target="_blank">中国机器人初创企业灵心巧手新一轮融资寻求翻倍估值</a>
-    </div>
-    <div class="nm">联合早报 · 今日</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-green"></div>
-      <a class="nt" href="https://www.zaobao.com.sg/news/china/story20260505-4790350" target="_blank">下午察：中国首艘核动力航母的命名悬念</a>
-    </div>
-    <div class="nm">联合早报 · 今日</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-green"></div>
-      <a class="nt" href="https://www.thepaper.cn/newsDetail_forward_20260505-2" target="_blank">习近平总书记的回信激励荆楚青年奋进新征程</a>
-    </div>
-    <div class="nm">澎湃新闻 · 今日</div>
-  </div>
-
+<div class="news-item">
+  <div class="news-title"><a href="https://techcrunch.com/2026/05/06/google-updates-ai-search-to-include-expert-advice-from-reddit-and-other-web-forums/" target="_blank">Google更新AI搜索，整合Reddit等论坛专家建议</a></div>
+  <div class="news-desc">Google升级AI搜索功能，将Reddit等社区论坛的专业回答纳入搜索结果，意图提升AI概述（AI Overviews）的可信度与实用性，应对AI搜索竞争格局变化。</div>
+  <div class="news-source">来源：TechCrunch · 2026-05-06</div>
 </div>
-
-<div class="divider"></div>
-
-<!-- 武汉 -->
-<div class="section">
-  <div class="section-head">
-    <div class="sec-icon si-wuhan">🏙️</div>
-    <div class="sec-title">武汉要闻</div>
-  </div>
-
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-orange"></div>
-      <a class="nt" href="https://www.cnhubei.com/202605/t20260505_8947200.shtml" target="_blank">光谷青年研发玻璃硬盘成功量产，一片玻璃可存储2.5万部高清电影</a>
     </div>
-    <div class="nm">荆楚网 · 今日</div>
-  </div>
 
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-orange"></div>
-      <a class="nt" href="https://www.cnhubei.com/202605/t20260505_8947150.shtml" target="_blank">AI机器人成武汉人"养老搭子"：智能护理、夜间巡视、互动陪伴</a>
+    <!-- 国际 -->
+    <div class="card">
+      <div class="card-section">🌍 国际</div>
+      <div class="news-item">
+  <div class="news-title"><a href="https://www.news.cn/world/" target="_blank">美舰强闯霍尔木兹海峡，伊朗开火——美伊紧张对峙升级</a></div>
+  <div class="news-desc">美国军舰强闯霍尔木兹海峡，伊朗随即开火反击，局势急剧升温。特朗普承认曾"一度考虑恢复空袭伊朗"，但随后宣布暂停"自由计划"行动。王毅同伊朗外长阿拉格齐会谈，呼吁全面止战。</div>
+  <div class="news-source">来源：新华网 · 联合早报 · 2026-05-06</div>
+</div>
+<div class="news-item">
+  <div class="news-title"><a href="https://www.news.cn/world/" target="_blank">俄乌分别宣布单方面停火——泽连斯基：6日零时起停火，俄罗斯响应胜利日停火</a></div>
+  <div class="news-desc">乌克兰总统泽连斯基宣布乌方6日零时起实施单方面停火，俄罗斯随即宣布胜利日停火并希望乌克兰跟进。联合国对双方停火决定表示欢迎。</div>
+  <div class="news-source">来源：新华网 · 2026-05-06</div>
+</div>
+<div class="news-item">
+  <div class="news-title"><a href="https://www.zaobao.com.sg/news/china" target="_blank">中伊外长会谈，王毅促全面止战——学者：北京扮演"减震器"防止美伊误判</a></div>
+  <div class="news-desc">外交部长王毅与伊朗外长阿拉格齐会谈，呼吁全面停止战争行动。学者分析，中国正充当美伊之间的"减震器"，防止双方误判导致局势失控。</div>
+  <div class="news-source">来源：联合早报 · 2026-05-06</div>
+</div>
+<div class="news-item">
+  <div class="news-title"><a href="https://techcrunch.com/2026/05/06/how-elon-musk-left-openai-according-to-greg-brockman/" target="_blank">Greg Brockman披露：马斯克当年如何离开OpenAI</a></div>
+  <div class="news-desc">OpenAI联合创始人Greg Brockman在法庭证词中详细披露了马斯克当年离开OpenAI的经过，两人关系走向破裂的始末。</div>
+  <div class="news-source">来源：TechCrunch · 2026-05-06</div>
+</div>
     </div>
-    <div class="nm">荆楚网 · 今日</div>
-  </div>
 
-  <div class="news-item">
-    <div class="topic-head" style="margin-bottom:0.45rem;">
-      <div class="nd n-orange"></div>
-      <a class="nt" href="https://www.cnhubei.com/202605/t20260505_8947100.shtml" target="_blank">场景焕新引发消费破圈，五一假期武汉客流翻番</a>
+    <!-- 国内 -->
+    <div class="card">
+      <div class="card-section">🏛️ 国内</div>
+      <div class="news-item">
+  <div class="news-title"><a href="https://www.zaobao.com.sg/news/china" target="_blank">中美元首会晤前多线交锋——外交部：中美就特朗普访华保持沟通</a></div>
+  <div class="news-desc">在中美元首可能举行会晤前，中美双方在外交、经贸、科技等多条战线展开交锋。中国外交部表示，中美就特朗普访华事宜保持着沟通，同时在科技限制、南海等问题上立场坚定。</div>
+  <div class="news-source">来源：联合早报 · 外交部 · 2026-05-06</div>
+</div>
+<div class="news-item">
+  <div class="news-title"><a href="https://www.zaobao.com.sg/news/china" target="_blank">日本发射进攻性导弹，外交部批"新型军国主义成势为患"</a></div>
+  <div class="news-desc">日本在战后军演中首次在境外发射进攻性导弹，引发周边国家强烈抗议。中国外交部回应指出日本的军事动向是"新型军国主义成势为患"，敦促日方反省历史。</div>
+  <div class="news-source">来源：联合早报 · 外交部 · 2026-05-06</div>
+</div>
+<div class="news-item">
+  <div class="news-title"><a href="https://www.zaobao.com.sg/news/china" target="_blank">安徽合肥市委书记费高云任上被查——反腐持续深入</a></div>
+  <div class="news-desc">安徽省委常委、合肥市委书记费高云涉嫌严重违纪违法，接受纪律审查和监察调查。这是今年又一位在任上落马的省会城市"一把手"，显示反腐斗争力度不减。</div>
+  <div class="news-source">来源：澎湃新闻 · 联合早报 · 2026-05-06</div>
+</div>
+<div class="news-item">
+  <div class="news-title"><a href="https://www.zaobao.com.sg/news/china" target="_blank">先正达考虑下半年香港IPO，估值或达500亿美元</a></div>
+  <div class="news-desc">全球农业巨头先正达（Syngenta）正考虑今年下半年在香港上市，估值可能达到500亿美元，这将有望成为香港今年最大规模IPO之一。</div>
+  <div class="news-source">来源：联合早报 · 2026-05-06</div>
+</div>
     </div>
-    <div class="nm">荆楚网 · 今日</div>
+
+    <!-- 武汉 -->
+    <div class="card">
+      <div class="card-section">🏙️ 武汉</div>
+      <div class="news-item">
+  <div class="news-title"><a href="https://www.thepaper.cn/" target="_blank">"五一"交通出行人次达15.17亿，创历史同期新高</a></div>
+  <div class="news-desc">"五一"假期全国交通出行人次达15.17亿，同比增长3.49%，创历史同期新高。铁路、民航客流较平日大幅增长，自驾出行持续火热，中部长假消费活力强劲。</div>
+  <div class="news-source">来源：新华网 · 澎湃新闻 · 2026-05-06</div>
+</div>
+<div class="news-item">
+  <div class="news-title"><a href="https://www.news.cn/sci-tech/index.html" target="_blank">"中国天眼"将从"单眼"升级为"复眼"，大幅提升观测能力</a></div>
+  <div class="news-desc">位于贵州的"中国天眼"500米口径球面射电望远镜（FAST）将从"单眼"升级为"复眼"，新增多个接收器，大幅提升巡天观测能力，进一步巩固我国在天文观测领域的国际领先地位。</div>
+  <div class="news-source">来源：新华网科创 · 2026-05-06</div>
+</div>
+<div class="news-item">
+  <div class="news-title"><a href="https://www.thepaper.cn/" target="_blank">全球芯片巨头集体暴涨——AI驱动历史级景气周期来临</a></div>
+  <div class="news-desc">受AI算力需求爆发式增长推动，三星、SK海力士等全球芯片巨头股价集体暴涨。分析指出，AI驱动的半导体景气周期或将持续多年，存储芯片、先进封装等环节尤为受益。</div>
+  <div class="news-source">来源：澎湃新闻 · 2026-05-06</div>
+</div>
+    </div>
+
+    <div class="footer">
+      新闻来源：新华网 · 联合早报 · TechCrunch · 澎湃新闻 · 荆楚网<br>
+      <a href="https://chenanchina.github.io/austin-news/">📖 在线阅读</a> · 手动刷新
+    </div>
   </div>
-
-</div>
-
-<div class="footer">
-  数据来源：新华网 · 澎湃新闻 · 联合早报 · TechCrunch · 荆楚网<br>
-  <span>整理 by Hermes · 2026年05月05日</span>
-</div>
-
-</div>
 </body>
 </html>
