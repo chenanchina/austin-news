@@ -1,80 +1,138 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>早安安哥 · 2026年06月19日 周五 新闻摘要</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; min-height: 100vh; padding: 20px; }
-.container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
-.header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 24px 32px; }
-.header h1 { font-size: 22px; font-weight: 600; }
-.header .date { font-size: 14px; opacity: 0.9; margin-top: 4px; }
-.header .tags { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
-.tag { background: rgba(255,255,255,0.25); padding: 4px 12px; border-radius: 20px; font-size: 12px; }
-.content { padding: 24px 32px; }
-.section { margin-bottom: 28px; }
-.section h2 { font-size: 15px; color: #667eea; font-weight: 600; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #f0f0f0; }
-.news-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
-.news-item:last-child { border-bottom: none; }
-.news-item .num { background: #667eea; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
-.news-item .cont { flex: 1; }
-.news-item .title { font-size: 15px; color: #1d1d1f; text-decoration: none; line-height: 1.5; display: block; }
-.news-item .title:hover { color: #667eea; }
-.news-item .meta { font-size: 12px; color: #999; margin-top: 4px; }
-.footer { background: #f5f5f7; padding: 16px 32px; text-align: center; font-size: 12px; color: #999; }
-.footer a { color: #667eea; text-decoration: none; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>早安安哥 · 2026年06月21日 新闻摘要</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f0f2f5; padding: 20px; }
+        .container { max-width: 640px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 32px 28px; text-align: center; }
+        .header .eyebrow { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; margin-bottom: 8px; }
+        .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+        .header .meta { font-size: 14px; opacity: 0.8; margin-top: 8px; }
+        .badge-row { display: flex; justify-content: center; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+        .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 4px 14px; border-radius: 20px; font-size: 12px; backdrop-filter: blur(4px); }
+        .divider { height: 3px; background: linear-gradient(90deg, #e74c3c, #f39c12, #2ecc71, #3498db, #9b59b6); }
+        
+        .section { padding: 22px 28px; border-bottom: 1px solid #f0f0f0; }
+        .section:last-child { border-bottom: none; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+        .section-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        .icon-ai { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .icon-intl { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .icon-cn { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .icon-wh { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .section-title { font-size: 16px; font-weight: 700; color: #1a1a2e; }
+        .section-sub { font-size: 12px; color: #888; margin-left: auto; }
+        .news-list { list-style: none; }
+        .news-list li { padding: 10px 0; border-bottom: 1px dashed #f0f0f0; line-height: 1.6; font-size: 14px; }
+        .news-list li:last-child { border-bottom: none; }
+        .news-list li a { color: #2c3e50; text-decoration: none; transition: color 0.2s; display: block; }
+        .news-list li a:hover { color: #3498db; }
+        .news-list li a::before { content: "• "; color: #3498db; font-weight: bold; margin-right: 6px; }
+        .news-desc { font-size: 12px; color: #888; margin-top: 3px; padding-left: 14px; }
+        
+        .footer { background: #f8f9fa; padding: 20px 28px; text-align: center; }
+        .footer p { font-size: 12px; color: #aaa; margin-bottom: 8px; }
+        .footer a { color: #3498db; text-decoration: none; }
+        .view-btn { display: inline-block; background: linear-gradient(135deg, #1a1a2e, #16213e); color: white !important; padding: 12px 32px; border-radius: 30px; font-size: 14px; font-weight: 600; text-decoration: none; margin-top: 8px; transition: transform 0.2s; }
+        .view-btn:hover { transform: translateY(-2px); }
+        
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .header { padding: 24px 20px; }
+            .header h1 { font-size: 22px; }
+            .section { padding: 18px 20px; }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <h1>📰 早安安哥 · 2026年06月19日 周五 新闻摘要</h1>
-    <div class="date">AI前沿 · 国际 · 国内 · 武汉</div>
-    <div class="tags">
-      <span class="tag">🤖 AI</span>
-      <span class="tag">🌍 国际</span>
-      <span class="tag">🇨🇳 国内</span>
-      <span class="tag">🏙️ 武汉</span>
+    <div class="container">
+        <div class="header">
+            <div class="eyebrow">早安安哥 · 新闻摘要</div>
+            <h1>2026年06月21日</h1>
+            <div class="meta">周日 · AI前沿 · 国际 · 国内 · 武汉</div>
+            <div class="badge-row">
+                <span class="badge">🤖 AI前沿</span>
+                <span class="badge">🌍 国际</span>
+                <span class="badge">🇨🇳 国内</span>
+                <span class="badge">🏯 武汉</span>
+            </div>
+        </div>
+        <div class="divider"></div>
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon icon-ai">🤖</div>
+                <div class="section-title">AI前沿</div>
+                <div class="section-sub">人工智能与科技</div>
+            </div>
+            <ul class="news-list">
+                
+<li><a href="https://techcrunch.com/2026/06/20/nobel-laureate-john-jumper-leaving-deepmind-for-anthropic/" target="_blank">诺贝尔奖得主约翰·詹伯离开DeepMind加入Anthropic</a> — AlphaFold核心开发者转投竞争对手，AI研究人才争夺加剧</li>
+<li><a href="https://techcrunch.com/2026/06/20/signal-meredith-whittaker-ai-chatbots-not-your-friends/" target="_blank">Signal总裁：AI聊天机器人"不是你的朋友"</a> — 梅雷迪思·惠特克呼吁用户保持警惕，AI隐私与安全问题持续发酵</li>
+<li><a href="http://www.news.cn/sci-tech/2026-06/20/" target="_blank">《智能助手类智能体安全分级规范与建设指南》发布</a> — 中国首个AI智能体安全分级标准出炉，推动从"可用"到"可信"</li>
+<li><a href="http://www.news.cn/sci-tech/2026-06/20/" target="_blank">两部门联合发文破解AI"测不准""数据荒"难题</a> — 政策出手解决AI评测和数据瓶颈问题</li>
+<li><a href="https://techcrunch.com/2026/06/20/in-the-weights-ai-centric-search/" target="_blank">In the Weights：全新AIcentric搜索引擎获融资</a> — 垂直AI搜索赛道持续升温</li>
+
+            </ul>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon icon-intl">🌍</div>
+                <div class="section-title">国际要闻</div>
+                <div class="section-sub">地缘政治与国际关系</div>
+            </div>
+            <ul class="news-list">
+                
+<li><a href="http://www.news.cn/world/2026-06/20/" target="_blank">美伊签署谅解备忘录，60天谈判窗口期开启</a> — 霍尔木兹海峡关闭引发全球关注，美伊达成初步协议缓解能源风险</li>
+<li><a href="http://www.news.cn/world/2026-06/20/" target="_blank">特朗普：不达成协议则收取霍尔木兹通行费</a> — 伊朗谈判代表已赴瑞士，巴基斯坦总理参与斡旋</li>
+<li><a href="http://www.news.cn/world/2026-06/20/" target="_blank">以色列同意停火后再次空袭黎巴嫩南部</a> — 中东局势反复，地缘冲突风险持续</li>
+<li><a href="http://www.news.cn/world/2026-06/20/" target="_blank">拉夫罗夫：俄军将密集打击乌军目标</a> — 俄乌局势升温，乌克兰基辅遭空袭</li>
+<li><a href="http://www.news.cn/world/2026-06/20/" target="_blank">日本央行加息难解三重困局</a> — 日元波动、消费低迷、人口减少令政策效果存疑</li>
+
+            </ul>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon icon-cn">🇨🇳</div>
+                <div class="section-title">国内动态</div>
+                <div class="section-sub">政策与经济</div>
+            </div>
+            <ul class="news-list">
+                
+<li><a href="http://www.paper.cn/news/2026-06/20/" target="_blank">5月全社会用电量同比增长6.9%</a> — 经济运行保持恢复态势</li>
+<li><a href="http://www.paper.cn/news/2026-06/20/" target="_blank">江苏多地党政机关"处"改"科"、处长变科长</a> — 规范内设机构，精简行政层级</li>
+<li><a href="http://www.paper.cn/news/2026-06/20/" target="_blank">广西：从严审核"一把手"异地调人</a> — 规范领导干部调配，防范任人唯亲</li>
+<li><a href="http://www.news.cn/sci-tech/2026-06/20/" target="_blank">HICOOL 2026全球创业大赛北京经开区赛事启动</a> — 全球创新创业资源加速汇聚</li>
+
+            </ul>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon icon-wh">🏯</div>
+                <div class="section-title">武汉要闻</div>
+                <div class="section-sub">本地资讯</div>
+            </div>
+            <ul class="news-list">
+                
+<li><a href="http://www.news.cn/" target="_blank">武汉光源建设稳步推进</a> — 华中地区重大科学基础设施进展顺利</li>
+<li><a href="http://www.news.cn/" target="_blank">湖北自贸区武汉片区制度创新</a> — 深化改革推动高质量发展</li>
+<li><a href="http://www.news.cn/" target="_blank">中部崛起战略深化推进</a> — 武汉城市圈建设提速</li>
+
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>📰 新闻来源：新华网 · 澎湃新闻 · TechCrunch · 联合早报</p>
+            <p>🔗 <a href="https://chenanchina.github.io/austin-news/">https://chenanchina.github.io/austin-news/</a></p>
+            <a href="https://chenanchina.github.io/austin-news/" class="view-btn">📖 在线阅读</a>
+        </div>
     </div>
-  </div>
-  <div class="content">
-    <div class="section">
-      <h2>🤖 AI 前沿</h2>
-      <div class="news-item"><div class="num">1</div><div class="cont"><a href="https://www.xinhuanet.com/tech/20260618/5b1326bbdbcd4f61967181f6fdadae3d/c.html" class="title" target="_blank">中国正加紧筹建世界人工智能合作组织</a><div class="meta">新华网科创 · 6月18日</div></div></div>
-      <div class="news-item"><div class="num">2</div><div class="cont"><a href="https://techcrunch.com/2025/06/18/openai-is-bringing-on-some-big-guns-in-the-lead-up-to-its-ipo/" class="title" target="_blank">OpenAI is bringing on some big guns in the lead-up to its IPO</a><div class="meta">TechCrunch · 今日</div></div></div>
-      <div class="news-item"><div class="num">3</div><div class="cont"><a href="https://techcrunch.com/2025/06/18/ai-inference-startup-baseten-reportedly-raising-1-5b-months-after-its-last-mega-round/" class="title" target="_blank">AI inference startup Baseten reportedly raising $1.5B months after its last mega round</a><div class="meta">TechCrunch · 今日</div></div></div>
-      <div class="news-item"><div class="num">4</div><div class="cont"><a href="https://techcrunch.com/2025/06/18/amazon-hopes-to-challenge-nvidia-more-directly-by-selling-its-ai-chips/" class="title" target="_blank">Amazon hopes to challenge Nvidia more directly by selling its AI chips</a><div class="meta">TechCrunch · 今日</div></div></div>
-      <div class="news-item"><div class="num">5</div><div class="cont"><a href="https://www.xinhuanet.com/tech/20260618/460c1fbecddb418691b192cc06a84aef/c.html" class="title" target="_blank">人工智能全面赋能电商大促</a><div class="meta">新华网科创 · 6月18日</div></div></div>
-    </div>
-    <div class="section">
-      <h2>🌍 国际重大事件</h2>
-      <div class="news-item"><div class="num">1</div><div class="cont"><a href="https://www.news.cn/world/" class="title" target="_blank">美伊远程签署谅解备忘录，60天谈判窗口期正式开启</a><div class="meta">新华网 · 今日</div></div></div>
-      <div class="news-item"><div class="num">2</div><div class="cont"><a href="https://www.zaobao.com.sg/news/world" class="title" target="_blank">霍尔木兹海峡解封，原油涌向亚洲或反致油库满载</a><div class="meta">联合早报 · 今日</div></div></div>
-      <div class="news-item"><div class="num">3</div><div class="cont"><a href="https://www.news.cn/world/" class="title" target="_blank">乌克兰对莫斯科发动创纪录无人机袭击，直逼炼油厂</a><div class="meta">新华网 · 今日</div></div></div>
-      <div class="news-item"><div class="num">4</div><div class="cont"><a href="https://www.news.cn/world/" class="title" target="_blank">日本央行加息，利率升至31年来新高</a><div class="meta">新华网 · 今日</div></div></div>
-      <div class="news-item"><div class="num">5</div><div class="cont"><a href="https://www.zaobao.com.sg/news/world" class="title" target="_blank">德国两军舰前往红海，以备在霍尔木兹海峡扫雷</a><div class="meta">联合早报 · 今日</div></div></div>
-    </div>
-    <div class="section">
-      <h2>🇨🇳 国内要闻</h2>
-      <div class="news-item"><div class="num">1</div><div class="cont"><a href="https://www.thepaper.cn" class="title" target="_blank">中共印发通知，要求把学习贯彻习近平党建思想作为重要政治任务</a><div class="meta">澎湃新闻 · 今日</div></div></div>
-      <div class="news-item"><div class="num">2</div><div class="cont"><a href="https://www.zaobao.com.sg/news/china" class="title" target="_blank">王毅赴印度出席金砖国安事务高级代表会议</a><div class="meta">联合早报 · 今日</div></div></div>
-      <div class="news-item"><div class="num">3</div><div class="cont"><a href="https://www.xinhuanet.com/tech/20260618/7cc222f4f0ab4f668b99c7c54c9b5422/c.html" class="title" target="_blank">AI下半场：比的不是"懂多少"而是"能干啥"</a><div class="meta">新华网科创 · 6月18日</div></div></div>
-      <div class="news-item"><div class="num">4</div><div class="cont"><a href="https://www.zaobao.com.sg/news/china" class="title" target="_blank">中国出台平台经济行动方案，推动算法透明化与内卷竞争治理</a><div class="meta">联合早报 · 今日</div></div></div>
-      <div class="news-item"><div class="num">5</div><div class="cont"><a href="https://www.zaobao.com.sg/news/china" class="title" target="_blank">中国提出17项举措，推动人工智能与消费融合</a><div class="meta">联合早报 · 今日</div></div></div>
-    </div>
-    <div class="section">
-      <h2>🏙️ 武汉要闻</h2>
-      <div class="news-item"><div class="num">1</div><div class="cont"><a href="https://www.news.cn/world/" class="title" target="_blank">2026世界青年发展论坛丨探访湖北人形机器人创新中心</a><div class="meta">新华网 · 今日</div></div></div>
-      <div class="news-item"><div class="num">2</div><div class="cont"><a href="https://www.news.cn/world/" class="title" target="_blank">中欧班列中通道累计通行班列突破2.5万列，"一带一路"合作持续深化</a><div class="meta">新华网 · 今日</div></div></div>
-      <div class="news-item"><div class="num">3</div><div class="cont"><a href="https://www.xinhuanet.com/tech/20260618/2da492df6a1a41c5936fe5583f10cad6/c.html" class="title" target="_blank">新能源汽车渗透率节节攀升，"里程焦虑"缓解</a><div class="meta">新华网科创 · 6月18日</div></div></div>
-    </div>
-  </div>
-  <div class="footer">
-    📖 原文链接请点击标题 · 由 Cron 自动化采集生成<br>
-    <a href="https://chenanchina.github.io/austin-news/">🔗 今日新闻</a>
-  </div>
-</div>
 </body>
 </html>
