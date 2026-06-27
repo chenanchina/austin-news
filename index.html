@@ -1,138 +1,155 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>早安安哥 · 2026年06月26日 新闻摘要</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f0f2f5; padding: 20px; }
-        .container { max-width: 640px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 32px 28px; text-align: center; }
-        .header .eyebrow { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; margin-bottom: 8px; }
-        .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
-        .header .meta { font-size: 14px; opacity: 0.8; margin-top: 8px; }
-        .badge-row { display: flex; justify-content: center; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
-        .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 4px 14px; border-radius: 20px; font-size: 12px; backdrop-filter: blur(4px); }
-        .divider { height: 3px; background: linear-gradient(90deg, #e74c3c, #f39c12, #2ecc71, #3498db, #9b59b6); }
-
-        .section { padding: 22px 28px; border-bottom: 1px solid #f0f0f0; }
-        .section:last-child { border-bottom: none; }
-        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-        .section-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-        .icon-ai { background: linear-gradient(135deg, #667eea, #764ba2); }
-        .icon-intl { background: linear-gradient(135deg, #f093fb, #f5576c); }
-        .icon-cn { background: linear-gradient(135deg, #4facfe, #00f2fe); }
-        .icon-wh { background: linear-gradient(135deg, #43e97b, #38f9d7); }
-        .section-title { font-size: 16px; font-weight: 700; color: #1a1a2e; }
-        .section-sub { font-size: 12px; color: #888; margin-left: auto; }
-        .news-list { list-style: none; }
-        .news-list li { padding: 10px 0; border-bottom: 1px dashed #f0f0f0; line-height: 1.6; font-size: 14px; }
-        .news-list li:last-child { border-bottom: none; }
-        .news-list li a { color: #2c3e50; text-decoration: none; transition: color 0.2s; display: block; }
-        .news-list li a:hover { color: #3498db; }
-        .news-list li a::before { content: "• "; color: #3498db; font-weight: bold; margin-right: 6px; }
-        .news-desc { font-size: 12px; color: #888; margin-top: 3px; padding-left: 14px; }
-
-        .footer { background: #f8f9fa; padding: 20px 28px; text-align: center; }
-        .footer p { font-size: 12px; color: #aaa; margin-bottom: 8px; }
-        .footer a { color: #3498db; text-decoration: none; }
-        .view-btn { display: inline-block; background: linear-gradient(135deg, #1a1a2e, #16213e); color: white !important; padding: 12px 32px; border-radius: 30px; font-size: 14px; font-weight: 600; text-decoration: none; margin-top: 8px; transition: transform 0.2s; }
-        .view-btn:hover { transform: translateY(-2px); }
-
-        @media (max-width: 480px) {
-            body { padding: 10px; }
-            .header { padding: 24px 20px; }
-            .header h1 { font-size: 22px; }
-            .section { padding: 18px 20px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年06月28日 新闻摘要</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f5f7; color: #1d1d1f; line-height: 1.6; }
+  .container { max-width: 720px; margin: 0 auto; padding: 20px; }
+  header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 32px 24px; border-radius: 16px; margin-bottom: 24px; text-align: center; }
+  header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  header .date { font-size: 16px; opacity: 0.9; }
+  .section { background: white; border-radius: 12px; padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .section h2 { font-size: 18px; font-weight: 600; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #f0f0f0; }
+  .section h2.ai { color: #667eea; border-color: #667eea; }
+  .section h2.intl { color: #e74c3c; border-color: #e74c3c; }
+  .section h2.cn { color: #e67e22; border-color: #e67e22; }
+  .section h2.wuhan { color: #27ae60; border-color: #27ae60; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #f5f5f5; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item a { color: #1d1d1f; text-decoration: none; font-size: 15px; display: block; }
+  .news-item a:hover { color: #667eea; }
+  .news-item .source { font-size: 12px; color: #86868b; margin-top: 4px; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-right: 6px; }
+  .tag-ai { background: #e8eaf6; color: #667eea; }
+  .tag-intl { background: #fbe9e7; color: #e74c3c; }
+  .tag-cn { background: #fff3e0; color: #e67e22; }
+  .tag-wuhan { background: #e8f5e9; color: #27ae60; }
+  footer { text-align: center; padding: 20px; color: #86868b; font-size: 13px; }
+  footer a { color: #667eea; text-decoration: none; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="eyebrow">早安安哥 · 新闻摘要</div>
-            <h1>2026年06月26日</h1>
-            <div class="meta">周五 · AI前沿 · 国际 · 国内 · 武汉</div>
-            <div class="badge-row">
-                <span class="badge">🤖 AI前沿</span>
-                <span class="badge">🌍 国际</span>
-                <span class="badge">🇨🇳 国内</span>
-                <span class="badge">🏯 武汉</span>
-            </div>
-        </div>
-        <div class="divider"></div>
+<div class="container">
+  <header>
+    <h1>📰 早安安哥 · 2026年06月28日 新闻摘要</h1>
+    <div class="date">周日 · AI前沿 · 国际 · 国内 · 武汉</div>
+  </header>
 
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon icon-ai">🤖</div>
-                <div class="section-title">AI前沿</div>
-                <div class="section-sub">人工智能与科技</div>
-            </div>
-            <ul class="news-list">
+  <div class="section">
+    <h2 class="ai">🤖 AI 前沿</h2>
+    <div class="news-item">
+  <a href="https://techcrunch.com/"><span class="tag tag-ai">AI</span><strong>OpenAI限制GPT-5.6 rollout，受政府请求收紧分发</strong></a>
+  <div class="source">TechCrunch · 原文链接</div>
+</div>
+<div class="news-item">
+  <a href="https://techcrunch.com/"><span class="tag tag-ai">AI</span><strong>特朗普政府解除Anthropic Mythos模型出口限制，逾百家企业/机构获批使用</strong></a>
+  <div class="source">TechCrunch · 原文链接</div>
+</div>
+<div class="news-item">
+  <a href="https://techcrunch.com/"><span class="tag tag-ai">AI</span><strong>苹果Vision Pro高管被曝离职加入OpenAI，AI人才争夺持续</strong></a>
+  <div class="source">TechCrunch · 原文链接</div>
+</div>
+<div class="news-item">
+  <a href="https://www.news.cn/sci-tech/index.html"><span class="tag tag-ai">AI</span><strong>两部门联合发文破解AI"测不准""数据荒"难题</strong></a>
+  <div class="source">新华网 · 科创</div>
+</div>
+<div class="news-item">
+  <a href="https://www.news.cn/sci-tech/index.html"><span class="tag tag-ai">AI</span><strong>《智能助手类智能体安全分级规范与建设指南》发布，智能体安全立"标尺"</strong></a>
+  <div class="source">新华网 · 科创</div>
+</div>
+<div class="news-item">
+  <a href="https://www.zaobao.com/news/world"><span class="tag tag-ai">AI</span><strong>AI泡沫忧虑升温，专家警告破裂冲击恐甚于历次股灾</strong></a>
+  <div class="source">联合早报 · 国际</div>
+</div>
+<div class="news-item">
+  <a href="https://www.news.cn/"><span class="tag tag-ai">算力</span><strong>中国超算"灵晟"登顶全球，每秒计算219亿亿次</strong></a>
+  <div class="source">新华网 · 首页</div>
+</div>
+  </div>
 
-<li><a href="https://techcrunch.com/2026/06/25/anthropics-claude-is-winning-over-paid-consumers-a-market-owned-by-chatgpt/" target="_blank">Anthropic Claude在付费消费者市场崛起，ChatGPT主导地位受挑战</a> — OpenAI长期主导的AI消费者市场出现变局，Claude凭借企业级应用口碑逐渐赢得付费用户青睐</li>
-<li><a href="https://techcrunch.com/2026/06/25/databricks-former-ai-chief-thinks-he-can-cut-ais-power-bill-by-1000x/" target="_blank">Databricks前AI负责人：AI电费可削减1000倍</a> — 前Databricks AI主管创业新项目，目标通过硬件创新将AI推理能耗降低三个数量级</li>
-<li><a href="https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/" target="_blank">Patronus AI获5000万美元融资打造"数字世界"压力测试AI智能体</a> — AI安全评测公司获大额融资，构建虚拟环境全面测试AI智能体鲁棒性</li>
-<li><a href="https://www.news.cn/sci-tech/2026-06/26/" target="_blank">八部门联合发文推动"人工智能+信息通信"创新发展</a> — 政策组合拳支持AI与通信业深度融合，新基建方向进一步明确，产业链上下游迎利好</li>
-<li><a href="https://www.news.cn/sci-tech/2026-06/26/" target="_blank">两部门联合发文破解AI"测不准""数据荒"难题</a> — 针对AI评测体系和数据短缺痛点出台专项政策，推动行业规范化发展</li>
+  <div class="section">
+    <h2 class="intl">🌍 国际重大事件</h2>
+    <div class="news-item">
+  <a href="https://www.news.cn/world/"><span class="tag tag-intl">地缘</span><strong>委内瑞拉强震已致1430人遇难，遇难中国公民升至8人</strong></a>
+  <div class="source">新华网 · 国际</div>
+</div>
+<div class="news-item">
+  <a href="https://www.zaobao.com/news/world"><span class="tag tag-intl">地缘</span><strong>美再打击伊朗设施，伊方反击，双方剑拔弩张，停火安排摇摇欲坠</strong></a>
+  <div class="source">联合早报 · 国际</div>
+</div>
+<div class="news-item">
+  <a href="https://www.news.cn/world/"><span class="tag tag-intl">地缘</span><strong>霍尔木兹海峡威胁等级上调，商船接连遇袭，约2500名海员已撤离</strong></a>
+  <div class="source">新华网 · 国际</div>
+</div>
+<div class="news-item">
+  <a href="https://www.zaobao.com/news/world"><span class="tag tag-intl">中东</span><strong>美以黎签框架协议，推动以军移交黎南控制区，真主党领袖称协议"无效"</strong></a>
+  <div class="source">联合早报 · 国际</div>
+</div>
+<div class="news-item">
+  <a href="https://www.zaobao.com/news/world"><span class="tag tag-intl">气候</span><strong>欧洲热浪东移，近2亿人受高温威胁；德国气温飙至41.3℃，创历史新高</strong></a>
+  <div class="source">联合早报 · 国际</div>
+</div>
+<div class="news-item">
+  <a href="https://www.zaobao.com/news/world"><span class="tag tag-intl">经济</span><strong>伊朗统计局：6月通胀率同比飙升88.6%</strong></a>
+  <div class="source">联合早报 · 国际</div>
+</div>
+  </div>
 
-            </ul>
-        </div>
+  <div class="section">
+    <h2 class="cn">🇨🇳 国内要闻</h2>
+    <div class="news-item">
+  <a href="https://www.news.cn/"><span class="tag tag-cn">经济</span><strong>前5个月全国规模以上工业企业利润增长18.8%</strong></a>
+  <div class="source">新华网 · 首页</div>
+</div>
+<div class="news-item">
+  <a href="https://www.zaobao.com/news/china"><span class="tag tag-cn">社会</span><strong>北京小飞机撞击高楼事故致1死13伤，驾驶员死亡</strong></a>
+  <div class="source">联合早报 · 中国</div>
+</div>
+<div class="news-item">
+  <a href="https://www.zaobao.com/news/china"><span class="tag tag-cn">人事</span><strong>马兴瑞与六名解放军将领人大代表资格被终止，学者：或涉二十一大布局</strong></a>
+  <div class="source">联合早报 · 中国</div>
+</div>
+<div class="news-item">
+  <a href="https://www.zaobao.com/news/china"><span class="tag tag-cn">军事</span><strong>中俄空军展开联合空中战略巡航</strong></a>
+  <div class="source">联合早报 · 中国</div>
+</div>
+<div class="news-item">
+  <a href="https://www.thepaper.cn/channel/25950"><span class="tag tag-cn">反腐</span><strong>中央社会工作部副部长贺志亮，任上被查</strong></a>
+  <div class="source">澎湃新闻 · 打虎记</div>
+</div>
+<div class="news-item">
+  <a href="https://www.zaobao.com/news/china"><span class="tag tag-cn">科技</span><strong>张国清调研两家"杭州六小龙"科企，吁加快突破核心技术瓶颈</strong></a>
+  <div class="source">联合早报 · 中国</div>
+</div>
+<div class="news-item">
+  <a href="https://www.news.cn/"><span class="tag tag-cn">科技</span><strong>新华社权威AI时政资讯智能体"新华语典"正式上线</strong></a>
+  <div class="source">新华网 · 首页</div>
+</div>
+  </div>
 
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon icon-intl">🌍</div>
-                <div class="section-title">国际要闻</div>
-                <div class="section-sub">地缘政治与国际关系</div>
-            </div>
-            <ul class="news-list">
+  <div class="section">
+    <h2 class="wuhan">🏙️ 武汉要闻</h2>
+    <div class="news-item">
+  <a href="https://www.thepaper.cn/channel/25950"><span class="tag tag-wuhan">产业</span><strong>中国首个脑机接口未来产业集聚区建设一周年，加速产业创新</strong></a>
+  <div class="source">澎湃新闻 · 浦江头条</div>
+</div>
+<div class="news-item">
+  <a href="https://www.thepaper.cn/channel/25950"><span class="tag tag-wuhan">新能源</span><strong>政策"解绑"新能源车维修限制，别让"修不起"拖产业后腿</strong></a>
+  <div class="source">澎湃新闻 · 舆论场</div>
+</div>
+<div class="news-item">
+  <a href="https://www.zaobao.com/news/china"><span class="tag tag-wuhan">华中</span><strong>湖北巴东县一果园据报立满监控，官方：后续安装行为被制止</strong></a>
+  <div class="source">联合早报 · 中国（湖北）</div>
+</div>
+  </div>
 
-<li><a href="https://www.zaobao.com/news/world" target="_blank">委内瑞拉连发7级以上强震，已致164死近千人受伤</a> — 委内瑞拉125年来最大震级地震，美中印等多国表示愿提供援助，2名中国公民不幸遇难</li>
-<li><a href="https://www.zaobao.com/news/world" target="_blank">伊朗霍尔木兹海峡已免费开放，布伦特原油抹去战时涨幅</a> — 美伊谈判取得实质进展，全球能源供应松了一口气，油价应声回落</li>
-<li><a href="https://www.news.cn/world/2026-06/26/" target="_blank">美伊谈判月底继续：围绕对伊核查各执一词</a> — 鲁比奥称不会不惜一切代价同伊朗达成协议，伊美技术性谈判6月30日继续</li>
-<li><a href="https://www.zaobao.com/news/world" target="_blank">日本东北地区发生7.2级地震，一周内恐再有强震</a> — 日本地震引发国际关注，海啸预警一度发布，目前已知至少4人受伤</li>
-<li><a href="https://www.news.cn/world/2026-06/26/" target="_blank">以色列袭击黎巴嫩南部致2人死亡</a> — 中东局势持续紧张，以色列与黎巴嫩边境冲突再度升温</li>
-
-            </ul>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon icon-cn">🇨🇳</div>
-                <div class="section-title">国内动态</div>
-                <div class="section-sub">政策与经济</div>
-            </div>
-            <ul class="news-list">
-
-<li><a href="https://www.thepaper.cn/channel/25950" target="_blank">习近平在山东德州考察：心系"国之大者"，推进农业农村现代化</a> — 国家主席基层调研，强调粮食安全和乡村振兴，传递重要政策信号</li>
-<li><a href="https://www.zaobao.com/news/china" target="_blank">中美双方同意成立贸易理事会</a> — 中美经贸磋商取得积极进展，双方建立专门机制处理贸易问题</li>
-<li><a href="https://www.zaobao.com/news/china" target="_blank">美AI巨头Anthropic指控阿里巴巴非法提取AI能力</a> — 阿里港股应声大跌，AI知识产权争议再度引发市场关注</li>
-<li><a href="https://www.thepaper.cn/channel/25950" target="_blank">李强会见孟加拉总理：推动港口水利等标志性项目落地见效</a> — 中国加强与南亚国家合作，"一带一路"重点项目稳步推进</li>
-
-            </ul>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon icon-wh">🏯</div>
-                <div class="section-title">武汉要闻</div>
-                <div class="section-sub">本地资讯</div>
-            </div>
-            <ul class="news-list">
-
-<li><a href="https://www.zaobao.com/news/china" target="_blank">武汉大学纪委书记由中纪委干将空降引议论</a> — 武汉重要高校人事变动，官方回应称系正常干部交流</li>
-<li><a href="https://www.thepaper.cn/channel/25950" target="_blank">端午小长假湖北文旅消费市场持续升温</a> — 假日经济表现亮眼，武汉位列热门目的地前列</li>
-<li><a href="https://www.news.cn/2026-06-26/" target="_blank">湖北自贸区武汉片区制度创新成果显著</a> — 深化改革推动高质量发展，开放型经济新体制加快形成</li>
-
-            </ul>
-        </div>
-
-        <div class="footer">
-            <p>📰 新闻来源：新华网 · 澎湃新闻 · TechCrunch · 联合早报</p>
-            <p>🔗 <a href="https://chenanchina.github.io/austin-news/">https://chenanchina.github.io/austin-news/</a></p>
-            <a href="https://chenanchina.github.io/austin-news/" class="view-btn">📖 在线阅读</a>
-        </div>
-    </div>
+  <footer>
+    <p>📖 每条新闻点击阅读原文 · 新闻来源：新华网、联合早报、TechCrunch、澎湃新闻</p>
+    <p style="margin-top:8px;"><a href="https://chenanchina.github.io/austin-news/">🔗 GitHub Pages 存档</a></p>
+  </footer>
+</div>
 </body>
 </html>
