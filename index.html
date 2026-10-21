@@ -1,136 +1,208 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>早安安哥 · 新闻摘要</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; min-height: 100vh; padding: 20px; }
-.container { max-width: 600px; margin: 0 auto; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-.header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: #fff; padding: 24px 20px; text-align: center; }
-.header .date { font-size: 14px; opacity: 0.8; margin-bottom: 4px; }
-.header .title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-.header .weekday { font-size: 13px; opacity: 0.7; }
-.section { padding: 16px 20px; border-bottom: 1px solid #eee; }
-.section:last-child { border-bottom: none; }
-.section-label { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; padding: 3px 10px; border-radius: 4px; margin-bottom: 10px; }
-.label-ai { background: #e74c3c; }
-.label-intl { background: #3498db; }
-.label-cn { background: #27ae60; }
-.label-wh { background: #9b59b6; }
-.news-item { padding: 10px 0; border-bottom: 1px dashed #eee; }
-.news-item:last-child { border-bottom: none; }
-.news-item a { color: #333; text-decoration: none; font-size: 14px; line-height: 1.6; display: block; }
-.news-item a:hover { color: #e74c3c; }
-.news-item .source { font-size: 11px; color: #999; margin-top: 4px; }
-.footer { text-align: center; padding: 16px; color: #999; font-size: 12px; }
-.footer a { color: #3498db; text-decoration: none; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026年10月22日 新闻摘要</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #222; line-height: 1.6; font-size: 16px; }
+    @media (prefers-color-scheme: dark) { body { background: #1a1a1a; color: #e0e0e0; } a { color: #6eb5ff; } .card { background: #2a2a2a; border-color: #3a3a3a; } .tag-ai { background: #5b4fff; } .tag-intl { background: #e63946; } .tag-cn { background: #2d8f4e; } .tag-wuhan { background: #d4841a; } header { background: #1f1f1f; border-color: #333; } .footer { border-color: #333; color: #888; } }
+
+    .container { max-width: 640px; margin: 0 auto; padding: 16px 12px; }
+    header { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid #e0e0e0; }
+    @media (prefers-color-scheme: dark) { header { background: #2a2a2a; border-color: #3a3a3a; } }
+    header h1 { font-size: 20px; font-weight: 700; color: #111; margin-bottom: 4px; }
+    @media (prefers-color-scheme: dark) { header h1 { color: #fff; } }
+    .header-date { font-size: 13px; color: #888; margin-bottom: 12px; }
+    .header-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #fff; }
+    .tag-ai { background: #4f46e5; }
+    .tag-intl { background: #dc2626; }
+    .tag-cn { background: #16a34a; }
+    .tag-wuhan { background: #d97706; }
+
+    .card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; border: 1px solid #e0e0e0; }
+    @media (prefers-color-scheme: dark) { .card { background: #2a2a2a; border-color: #3a3a3a; } }
+    .card-section { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #888; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+    @media (prefers-color-scheme: dark) { .card-section { border-color: #333; } }
+    .news-item { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #f0f0f0; }
+    @media (prefers-color-scheme: dark) { .news-item { border-color: #333; } }
+    .news-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .news-title { font-size: 15px; font-weight: 600; color: #111; margin-bottom: 4px; line-height: 1.4; }
+    @media (prefers-color-scheme: dark) { .news-title { color: #e8e8e8; } }
+    .news-title a { text-decoration: none; color: inherit; }
+    .news-title a:hover { text-decoration: underline; }
+    .news-desc { font-size: 13px; color: #666; line-height: 1.5; }
+    @media (prefers-color-scheme: dark) { .news-desc { color: #999; } }
+    .news-source { font-size: 11px; color: #aaa; margin-top: 4px; }
+    @media (prefers-color-scheme: dark) { .news-source { color: #777; } }
+
+    .footer { text-align: center; padding: 20px 0; font-size: 12px; color: #aaa; border-top: 1px solid #e0e0e0; margin-top: 8px; }
+  </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <div class="date">2026年10月21日</div>
-    <div class="title">📰 早安安哥 · 新闻摘要</div>
-    <div class="weekday">周三</div>
-  </div>
+  <div class="container">
+    <header>
+      <h1>📰 早安安哥 · 2026年10月22日</h1>
+      <div class="header-date">周四 · AI前沿 · 国际 · 国内 · 武汉</div>
+      <div class="header-tags">
+        <span class="tag tag-ai">🤖 AI前沿</span>
+        <span class="tag tag-intl">🌍 国际</span>
+        <span class="tag tag-cn">🏛️ 国内</span>
+        <span class="tag tag-wuhan">🏙️ 武汉</span>
+      </div>
+    </header>
 
-  <div class="section">
-    <span class="section-label label-ai">🤖 AI前沿</span>
-    <div class="news-item">
-  <a href="https://techcrunch.com/2026/10/20/spacexs-ai-business-is-beating-expectations/" target="_blank">SpaceX AI业务超出预期，正在多个领域部署人工智能</a>
-  <div class="source">TechCrunch</div>
-</div>
-<div class="news-item">
-  <a href="https://techcrunch.com/2026/10/20/google-has-joined-amazon-in-attacking-nvidias-stronghold-with-ai-app-developers/" target="_blank">谷歌加入亚马逊行列，共同挑战英伟达在AI应用开发者领域的主导地位</a>
-  <div class="source">TechCrunch</div>
-</div>
-<div class="news-item">
-  <a href="https://techcrunch.com/2026/10/20/anthropics-cloud-partnerships-are-getting-messy/" target="_blank">Anthropic云端合作伙伴关系日趋复杂</a>
-  <div class="source">TechCrunch</div>
-</div>
-<div class="news-item">
-  <a href="https://techcrunch.com/2026/10/20/openai-acquires-startup-orchestra-bio-to-beef-up-its-biotech-business/" target="_blank">OpenAI收购生物科技初创公司Orchestra Bio强化生物技术业务</a>
-  <div class="source">TechCrunch</div>
-</div>
-<div class="news-item">
-  <a href="https://www.news.cn/sci-tech/20261020/abc123/c.html" target="_blank">截至今年上半年我国生成式人工智能用户规模超7亿人</a>
-  <div class="source">新华网 · 科创</div>
-</div>
-<div class="news-item">
-  <a href="https://www.news.cn/sci-tech/20261020/def456/c.html" target="_blank">首个"人工智能+脑机接口"标准正式发布</a>
-  <div class="source">新华网 · 科创</div>
-</div>
-  </div>
+    <!-- AI前沿 -->
+    <div class="card">
+      <div class="card-section">🤖 AI前沿</div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://techcrunch.com/2026/10/20/anthropic-pitches-ai-safety-bill-that-may-block-a-model-if-50-people-could-be-killed/" target="_blank">Anthropic 提议AI安全法案：若模型可能致50人以上死亡将强制拦截</a></div>
+        <div class="news-desc">Anthropic 推动立法，要求前沿模型发布前评估大规模伤亡风险，构成业内首个可执行的安全门槛提案。</div>
+        <div class="news-source">TechCrunch · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/" target="_blank">Recursive 发布 Flint 笔记本端代码模型，主张“模型自身写出了大部分代码”</a></div>
+        <div class="news-desc">面向本地部署的端侧代码模型，号称大部分训练与工程由 AI 自行完成，标志代码模型从云端向个人设备下沉。</div>
+        <div class="news-source">TechCrunch · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://techcrunch.com/2026/10/20/us-orders-federal-agencies-to-remove-chinas-deepseek-ai-from-their-systems/" target="_blank">美国下令联邦机构移除系统中的中国 DeepSeek AI</a></div>
+        <div class="news-desc">美联邦采购排除令延伸至模型层，DeepSeek 等中国 AI 在美国政府系统全面禁用，中美AI脱钩进一步加深。</div>
+        <div class="news-source">TechCrunch · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.news.cn/tech/20261021/788a6f0b650c4ed1b06cede2b29aaa83/c.html" target="_blank">我国智能算力规模达 2592 EFLOPS，国产算力基建持续扩张</a></div>
+        <div class="news-desc">官方数据显示智能算力规模同比大幅增长，算力基础设施成为支撑AI应用落地的核心底座。</div>
+        <div class="news-source">新华网 · 科技 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.news.cn/politics/20261021/a0b107f4625f417384f5b8ab492739a0/c.html" target="_blank">中办、国办发布《关于推动科技创新和产业创新深度融合的意见》</a></div>
+        <div class="news-desc">在“十五五”开局关键期出台，明确科技创新与产业创新融合的顶层设计，AI+制造被列为重点方向。</div>
+        <div class="news-source">新华网 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.news.cn/tech/20261020/a171ff00dbb848a99f098ae7c145a60b/c.html" target="_blank">人工智能赋能钢铁行业相关国家标准发布</a></div>
+        <div class="news-desc">AI 与传统重工业融合的标准化落地路径明确，为制造业智能化改造提供统一技术规范。</div>
+        <div class="news-source">新华网 · 科技 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://techcrunch.com/2026/10/21/meta-says-muse-has-over-10m-users-with-shopping-a-top-activity/" target="_blank">Meta 称 Muse 用户已超 1000 万，购物成为核心使用场景</a></div>
+        <div class="news-desc">Meta 的 AI 助手 40 天内达成千万级用户量，验证“对话式AI+电商导购”的商业路径。</div>
+        <div class="news-source">TechCrunch · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://techcrunch.com/2026/10/20/chatgpt-now-lets-you-lock-your-chats/" target="_blank">ChatGPT 支持对话加锁，隐私保护功能上线</a></div>
+        <div class="news-desc">OpenAI 为聊天记录增加锁定功能，应对用户对AI对话敏感信息泄露的长期担忧。</div>
+        <div class="news-source">TechCrunch · 2026年10月22日</div>
+      </div>
+    </div>
 
-  <div class="section">
-    <span class="section-label label-intl">🌍 国际</span>
-    <div class="news-item">
-  <a href="https://www.zaobao.com/news/world/story20261021-9851000" target="_blank">特朗普：对下月与习近平、普京举行三方会谈持开放态度</a>
-  <div class="source">联合早报 · 国际</div>
-</div>
-<div class="news-item">
-  <a href="https://www.zaobao.com/news/world/story20261021-9850500" target="_blank">法国多地实施宵禁恢复秩序 骚乱波及至少3000商家</a>
-  <div class="source">联合早报 · 国际</div>
-</div>
-<div class="news-item">
-  <a href="https://www.news.cn/world/20261021/abc123/c.html" target="_blank">朝鲜威胁增派战术打击力量 韩军警告将坚决反制</a>
-  <div class="source">新华网 · 国际</div>
-</div>
-<div class="news-item">
-  <a href="https://www.zaobao.com/news/world/story20261021-9850300" target="_blank">俄军加强打击乌能源设施 泽连斯基赴挪威晤美特使</a>
-  <div class="source">联合早报 · 国际</div>
-</div>
-<div class="news-item">
-  <a href="https://www.news.cn/world/20261021/def456/c.html" target="_blank">英国将派战斗机协助沙特防御胡塞武装袭击</a>
-  <div class="source">新华网 · 国际</div>
-</div>
-  </div>
+    <!-- 国际 -->
+    <div class="card">
+      <div class="card-section">🌍 国际</div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.zaobao.com.sg/news/world/story20261021-9874199" target="_blank">俄罗斯原则上同意 11 月重启俄乌美三方和谈</a></div>
+        <div class="news-desc">普京会见美总统特使后释放缓和信号，泽连斯基支持三方会晤，乌克兰问题重回谈判轨道。</div>
+        <div class="news-source">联合早报 · 国际 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.zaobao.com.sg/news/world/story20261021-9874384" target="_blank">袭船事件从霍尔木兹海峡蔓延至伊拉克附近海域</a></div>
+        <div class="news-desc">中东航运安全风险进一步外溢，能源运输通道承压，国际能源署警告全球能源市场至2027年难恢复正常。</div>
+        <div class="news-source">联合早报 · 国际 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.news.cn/world/20261021/24789e82f3754b9d82683234c482d728/c.html" target="_blank">乌克兰问题会谈在挪威举行，美特使将赴俄见普京</a></div>
+        <div class="news-desc">三方会谈在挪威举行，普京会见美总统特使，同时特朗普施压泽连斯基尽快与俄达成协议。</div>
+        <div class="news-source">新华网 · 国际 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.zaobao.com.sg/news/world/story20261021-9872968" target="_blank">北约东翼遭多起无人机袭击，联盟向黑海增加部署</a></div>
+        <div class="news-desc">俄乌冲突外溢至北约成员国边境，军事部署升级引发对欧洲安全形势的连锁反应。</div>
+        <div class="news-source">联合早报 · 国际 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.zaobao.com.sg/news/world/story20261021-9874345" target="_blank">马克龙批外国领导人借法国骚乱谋政治利益，法国多城宵禁</a></div>
+        <div class="news-desc">法国骚乱持续冲击旅游业与政局，欧债收益率创24年新高，马克龙称坚决杜绝骚乱重演。</div>
+        <div class="news-source">联合早报 · 国际 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.zaobao.com.sg/news/world/story20261021-9874109" target="_blank">厄尔尼诺今年底或达空前强度，全球 5000 万人恐挨饿</a></div>
+        <div class="news-desc">极端气候预警升级，联合国称即便最乐观情形全球变暖仍将高于预期，粮食与能源供应链承压。</div>
+        <div class="news-source">联合早报 · 国际 · 2026年10月22日</div>
+      </div>
+    </div>
 
-  <div class="section">
-    <span class="section-label label-cn">🇨🇳 国内</span>
-    <div class="news-item">
-  <a href="https://www.zaobao.com/news/china/story20261021-9850000" target="_blank">中国第三季GDP增长4.5%高于预期 前三季度经济运行总体平稳</a>
-  <div class="source">联合早报 · 中国</div>
-</div>
-<div class="news-item">
-  <a href="https://www.zaobao.com/news/china/story20261021-9849800" target="_blank">中纪委强调只要涉腐就没有"平安着陆" 分析指黄奇帆案在敲打退休干部</a>
-  <div class="source">联合早报 · 中国</div>
-</div>
-<div class="news-item">
-  <a href="https://www.thepaper.cn/newsDetail_forward_34270000" target="_blank">中国国家数据集团成立 丁薛祥：有助把握AI发展先机</a>
-  <div class="source">澎湃新闻</div>
-</div>
-<div class="news-item">
-  <a href="https://www.zaobao.com/news/china/story20261021-9849500" target="_blank">中国17岁天才少年离职月之暗面赴美 AI人才流动引关注</a>
-  <div class="source">联合早报 · 中国</div>
-</div>
-<div class="news-item">
-  <a href="https://www.thepaper.cn/newsDetail_forward_34268000" target="_blank">长征文物资源家底基本摸清 纪念长征胜利90周年</a>
-  <div class="source">澎湃新闻</div>
-</div>
-  </div>
+    <!-- 国内 -->
+    <div class="card">
+      <div class="card-section">🏛️ 国内</div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.news.cn/fortune/20261021/23c0a985bfca45f7bc85397f36b9958e/c.html" target="_blank">2026 年前三季度医保统筹基金支出超 1.7 万亿元</a></div>
+        <div class="news-desc">医保基金运行总体平稳，支出规模创新高，民生保障与医保基金可持续性成为关注焦点。</div>
+        <div class="news-source">新华网 · 财经 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.news.cn/fortune/20261021/6496759b7e9d471381f3aaa0a2082468/c.html" target="_blank">数字人民币基础设施服务体系全面升级</a></div>
+        <div class="news-desc">数字人民币基础设施完成系统性升级，支付体系与普惠金融数字化协同推进。</div>
+        <div class="news-source">新华网 · 财经 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.news.cn/fortune/20261021/243fbb9077cc41b98ad7b97b8a05c29b/c.html" target="_blank">网联平台单日处理支付交易 46.4 亿笔，创历史新高</a></div>
+        <div class="news-desc">反映线上消费与移动支付规模持续扩张，数字经济基础设施承载能力进一步验证。</div>
+        <div class="news-source">新华网 · 财经 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.news.cn/fortune/20261020/28bdb8c7296341aea6c56c82105c76c9/c.html" target="_blank">透视“十五五”开局之年中国经济三季报：工业经济稳中提质</a></div>
+        <div class="news-desc">前三季度数据呈现“稳、丰、新、好、快、优”特征，发展动能向新向优，新质生产力贡献提升。</div>
+        <div class="news-source">新华网 · 财经 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.news.cn/politics/20261021/478f0a571d7e4c118219eb61b8baccac/c.html" target="_blank">台风“蔷琵”逼近，中国气象局启动四级应急响应</a></div>
+        <div class="news-desc">强台风逼近我国东南沿海，福建等地启动防台风应急响应，需防范强风暴雨影响。</div>
+        <div class="news-source">新华网 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.news.cn/world/20261020/8df7895b0e7b4a239bcb7c9c9cd04e86/c.html" target="_blank">商务部：坚决反对美污名化中国企业并实施制裁</a></div>
+        <div class="news-desc">中方就美方发布针对中国企业的联邦采购排除和移除命令正式表态，贸易科技摩擦持续升级。</div>
+        <div class="news-source">新华网 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.zaobao.com.sg/news/china/story20261021-9873434" target="_blank">德国总理默茨：欧盟寻求避免打对华贸易战，同时做好自我防卫</a></div>
+        <div class="news-desc">欧盟对华经贸政策出现调整信号，中欧关系在摩擦中寻求有限度管控分歧。</div>
+        <div class="news-source">联合早报 · 中国 · 2026年10月22日</div>
+      </div>
+    </div>
 
-  <div class="section">
-    <span class="section-label label-wh">🏙️ 要闻集锦</span>
-    <div class="news-item">
-  <a href="https://www.thepaper.cn/newsDetail_forward_34266000" target="_blank">弘扬伟大长征精神 走好今天的长征路</a>
-  <div class="source">澎湃新闻</div>
-</div>
-<div class="news-item">
-  <a href="https://www.news.cn/sci-tech/20261021/zxxk789/c.html" target="_blank">新华网AI搜：依托AISO框架打造可信AI搜索服务</a>
-  <div class="source">新华网 · 科创</div>
-</div>
-<div class="news-item">
-  <a href="https://www.thepaper.cn/newsDetail_forward_34265000" target="_blank">核心装备自主研制重大突破！国内首台大功率极地破冰吊舱推进器下线</a>
-  <div class="source">澎湃新闻</div>
-</div>
-  </div>
+    <!-- 武汉 -->
+    <div class="card">
+      <div class="card-section">🏙️ 武汉</div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.thepaper.cn/newsDetail_forward_34289136" target="_blank">武汉市汉阳区法院回应“女子反映未起诉被立案”：案件正二审</a></div>
+        <div class="news-desc">法院回应社会关注案件进展，称案件已进入二审阶段，暂不便透露具体情况。</div>
+        <div class="news-source">澎湃新闻 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.thepaper.cn/newsDetail_forward_34248917" target="_blank">武汉大学法学院院长秦天宝已任校党委常委、副校长</a></div>
+        <div class="news-desc">武大官网“现任领导”栏目更新显示，人事变动涉及法学学科建设与学校治理。</div>
+        <div class="news-source">澎湃新闻 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.thepaper.cn/newsDetail_forward_34108938" target="_blank">文旅部：第十一届中国京剧艺术节将在湖北武汉举办</a></div>
+        <div class="news-desc">艺术节将于10月15日至11月5日在武汉举行，是武汉承办的国家级文化艺术盛会。</div>
+        <div class="news-source">澎湃新闻 · 2026年10月22日</div>
+      </div>
+      <div class="news-item">
+        <div class="news-title"><a href="https://www.thepaper.cn/newsDetail_forward_34287272" target="_blank">“何以中国·当惊世界殊”网络主题宣传活动在湖北宜昌举行</a></div>
+        <div class="news-desc">会议提出加快推进武汉光谷、武汉区域科创中心和武汉都市圈建设，支点建设提速。</div>
+        <div class="news-source">澎湃新闻 · 2026年10月22日</div>
+      </div>
+    </div>
 
-  <div class="footer">
-    <p>📖 <a href="https://chenanchina.github.io/austin-news/" target="_blank">在线阅读 & 阅读原文</a></p>
+    <div class="footer">
+      新闻来源：新华网 · 联合早报 · TechCrunch · 澎湃新闻<br>
+      <a href="https://chenanchina.github.io/austin-news/">📖 在线阅读</a> · 手动刷新
+    </div>
   </div>
-</div>
 </body>
 </html>
